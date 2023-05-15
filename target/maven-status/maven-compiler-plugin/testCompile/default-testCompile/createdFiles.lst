@@ -1,0 +1,5 @@
+pe\com\bif\techcases\testautomation\Tests.class
+pe\com\bif\techcases\testautomation\ui\actors\DefaultUser$PageContainer.class
+pe\com\bif\techcases\testautomation\ui\pages\pricingminoristaPage.class
+pe\com\bif\techcases\testautomation\ui\actors\DefaultUser.class
+pe\com\bif\techcases\testautomation\ui\steps\StepDefinitions.class
