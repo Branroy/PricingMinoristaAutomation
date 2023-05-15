@@ -49,10 +49,11 @@ public class StepDefinitions {
         //1. Datos del Cliente
         user.clicksOn("Nueva Cotización");
         user.selectText("cboTipoDocumento","DNI");
-        user.fillsField("txtNroDocumento","74649971");
+        user.fillsField("txtNroDocumento","46100333");
         user.clicksOnButtonByID("btn");
-        user.clicksOn("Nueva Solicitud");
-        //Thread.sleep(1000);
+        user.waitElement("loader");
+        user.validacionClient();
+
 
     }
     @When("the user selects product {string} and modality {string}")
@@ -65,6 +66,9 @@ public class StepDefinitions {
         user.waitElement("loader");
         user.selectText("cboModalidad", modality);
         user.waitElement("loader");
+        //Este metodo valida si el campo Nro Cuenta esta visible y si lo está ingresa el dato.
+        user.validacionModality("241130061652");
+
         user.selectText("cboTipoIngreso", "INGRESO INDIVIDUAL");
         user.waitElement("loader");
         user.selectText("cboTipoRelacionLaboral", "INDEPENDIENTE");
@@ -73,7 +77,7 @@ public class StepDefinitions {
 
 
         //3. Datos del préstamo
-        user.selectValue("cboMonedaOperacion", "USD");
+        user.selectValue("cboMonedaOperacion", "PEN");
         user.fillsFieldbyId("txtMontoOperacion", "500000.50");
         user.selectText("cboGarantia", "SIN GARANTIA");
         user.selectText("cboPlazo", "AÑO");

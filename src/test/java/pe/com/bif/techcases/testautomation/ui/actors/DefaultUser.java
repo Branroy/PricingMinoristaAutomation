@@ -81,6 +81,24 @@ public class DefaultUser extends ScenarioSteps {
     }
 
     @Step
+    public void validacionClient() throws IllegalAccessException,InterruptedException {
+        Thread.sleep(2000);
+        if(isAbleToSee("No se encontró ningún cliente con los datos especificados. \n" +
+                " Por favor ingrese el nombre del cliente.")){
+            clicksOnByXpath("/html/body/div[16]/div/div[3]/button[1]");
+            fillsField("txtNombre","CLIENTE TEST AUTOMATIZADO");
+        }
+    }
+
+    @Step
+    public void validacionModality(String nropagare) throws IllegalAccessException,InterruptedException {
+        Thread.sleep(500);
+        if(isAbleToSee("Nro. Pagaré:")){
+            fillsFieldbyId("txtNroPagarePLD",nropagare);
+        }
+    }
+
+    @Step
     public void fillsFieldbyId(String elementName, String value) throws IllegalAccessException,InterruptedException {
         getDriver().findElement(By.id(elementName)).sendKeys(Keys.HOME);
         getDriver().findElement(By.id(elementName)).sendKeys(Keys.ARROW_RIGHT);
@@ -117,6 +135,8 @@ public class DefaultUser extends ScenarioSteps {
             return false;
         }
     }
+
+
 
     @Step
     public void waitElement(String elementName) throws IllegalAccessException,InterruptedException {
