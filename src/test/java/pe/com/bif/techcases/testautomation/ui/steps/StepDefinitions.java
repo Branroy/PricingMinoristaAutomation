@@ -49,7 +49,7 @@ public class StepDefinitions {
         //1. Datos del Cliente
         user.clicksOn("Nueva Cotización");
         user.selectText("cboTipoDocumento","DNI");
-        user.fillsField("txtNroDocumento","46100333");
+        user.fillsField("txtNroDocumento","46122332");
         user.clicksOnButtonByID("btn");
         user.waitElement("loader");
         user.validacionClient();
@@ -73,7 +73,9 @@ public class StepDefinitions {
         user.waitElement("loader");
         user.selectText("cboTipoRelacionLaboral", "INDEPENDIENTE");
         user.waitElement("loader");
-        user.fillsFieldbyId("txtIngresoEstimado", "10500.50");
+
+        //user.fillsFieldbyId("txtIngresoEstimado", "10500.50");
+        user.validacionIngresos("NO", 1200);
 
 
         //3. Datos del préstamo

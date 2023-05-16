@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: pe.com.bif.techcases.testautomation.Tests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 53.719 s - in pe.com.bif.techcases.testautomation.Tests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 49.215 s <<< FAILURE! - in pe.com.bif.techcases.testautomation.Tests
+Pricing PLD Tarifario.1- Executive can price a PLD product in its own autonomy.  Time elapsed: 43.979 s  <<< ERROR!
+org.openqa.selenium.ElementNotInteractableException: 
+element not interactable
+  (Session info: chrome=113.0.5672.93)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75410b27021b905c4e662487f6bcba93, clickElement {id=6936A2244761DC3AFDED8CD5F30AC8F7_element_264}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.93, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\PERSONAL\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63219}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63219/devtoo..., se:cdpVersion: 113.0.5672.93, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (75410b27021b905c4e662487f6bcba93)] -> xpath: /html/body/div[16]/div/div[3]/button[2]]
+Session ID: 75410b27021b905c4e662487f6bcba93
+

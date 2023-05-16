@@ -107,6 +107,25 @@ public class DefaultUser extends ScenarioSteps {
     }
 
     @Step
+    public void validacionIngresos(String opcion, double value) throws IllegalAccessException,InterruptedException {
+        if (opcion.equalsIgnoreCase("NO")){
+            //int numero = value(Math.random()*99999)+1;
+            double min = Math.ceil(1);
+            double max = Math.floor(value);
+            double r = Math.floor(Math.random() * (max - min + 1) + min);
+            String result = String.valueOf(r);
+            fillsFieldbyId("txtIngresoEstimado", result);
+        }else if(opcion.equalsIgnoreCase("SI")){
+            double min = Math.ceil(value);
+            double max = Math.floor(999999);
+            double r = Math.floor(Math.random() * (max - min + 1) + min);
+            String result = String.valueOf(r);
+            fillsFieldbyId("txtIngresoEstimado", result);
+        }
+
+    }
+
+    @Step
     public void fillsFieldbyClic(String elementName, String value) throws IllegalAccessException,InterruptedException {
         String elementNameT = '"'+elementName+'"';
         getDriver().findElement(By.xpath("//*[@id="+elementNameT+"]")).click();
