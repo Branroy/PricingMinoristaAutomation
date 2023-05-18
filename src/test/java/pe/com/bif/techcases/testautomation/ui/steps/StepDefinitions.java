@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StepDefinitions {
 
     @Steps
-    DefaultUser user;
+    public DefaultUser user;
 
     @ParameterType(".*")
     public DefaultUser user(String user) {
@@ -49,7 +49,7 @@ public class StepDefinitions {
         //1. Datos del Cliente
         user.clicksOn("Nueva Cotización");
         user.selectText("cboTipoDocumento","DNI");
-        user.fillsField("txtNroDocumento","46122332");
+        user.fillsField("txtNroDocumento","04312992");
         user.clicksOnButtonByID("btn");
         user.waitElement("loader");
         user.validacionClient();
@@ -59,7 +59,6 @@ public class StepDefinitions {
     @When("the user selects product {string} and modality {string}")
     public void clicksG(String product,String modality) throws IllegalAccessException, InterruptedException {
         //2. Datos del producto
-        user.waitElement("loader");
         user.selectText("cboTipoProducto", "PLD");
         user.waitElement("loader");
         user.selectText("cboProducto", product);
@@ -67,16 +66,12 @@ public class StepDefinitions {
         user.selectText("cboModalidad", modality);
         user.waitElement("loader");
         //Este metodo valida si el campo Nro Cuenta esta visible y si lo está ingresa el dato.
-        user.validacionModality("241130061652");
-
+        user.validacionModality(modality,"241130061652");
         user.selectText("cboTipoIngreso", "INGRESO INDIVIDUAL");
         user.waitElement("loader");
         user.selectText("cboTipoRelacionLaboral", "INDEPENDIENTE");
         user.waitElement("loader");
-
-        //user.fillsFieldbyId("txtIngresoEstimado", "10500.50");
         user.validacionIngresos("NO", 1200);
-
 
         //3. Datos del préstamo
         user.selectValue("cboMonedaOperacion", "PEN");
@@ -84,7 +79,6 @@ public class StepDefinitions {
         user.selectText("cboGarantia", "SIN GARANTIA");
         user.selectText("cboPlazo", "AÑO");
         user.fillsFieldbyId("txtPlazo", "5");
-
 
         //Fecha de Primera Cuota, selecciona el mes siguiente.
         user.clicksOnButtonByID("txtFechaPrimeraC");

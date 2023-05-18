@@ -91,9 +91,8 @@ public class DefaultUser extends ScenarioSteps {
     }
 
     @Step
-    public void validacionModality(String nropagare) throws IllegalAccessException,InterruptedException {
-        Thread.sleep(500);
-        if(isAbleToSee("Nro. Pagaré:")){
+    public void validacionModality(String modality,String nropagare) throws IllegalAccessException,InterruptedException {
+        if(isAbleToSee("Nro. Pagaré:") && "REENGANCHE"==modality){
             fillsFieldbyId("txtNroPagarePLD",nropagare);
         }
     }

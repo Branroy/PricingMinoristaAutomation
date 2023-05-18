@@ -1,5 +1,12 @@
-pe\com\bif\techcases\testautomation\Tests.class
 pe\com\bif\techcases\testautomation\ui\actors\DefaultUser$PageContainer.class
-pe\com\bif\techcases\testautomation\ui\pages\pricingminoristaPage.class
+pe\com\bif\techcases\testautomation\ui\tasks\LoginfillElements\FillUsuario.class
 pe\com\bif\techcases\testautomation\ui\actors\DefaultUser.class
+pe\com\bif\techcases\testautomation\ParameterizedTest.class
 pe\com\bif\techcases\testautomation\ui\steps\StepDefinitions.class
+pe\com\bif\techcases\testautomation\ui\actors\BaseConf.class
+pe\com\bif\techcases\testautomation\ui\tasks\LoginFill.class
+pe\com\bif\techcases\testautomation\Tests.class
+pe\com\bif\techcases\testautomation\ui\mapping\Login.class
+pe\com\bif\techcases\testautomation\ui\pages\pricingminoristaPage.class
+pe\com\bif\techcases\testautomation\ui\tasks\NavigateTo.class
+pe\com\bif\techcases\testautomation\ui\tasks\LoginfillElements\FillPassword.class

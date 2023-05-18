@@ -4,4 +4,4 @@ Feature: Pricing PLD Tarifario
 
     Given a user visits pricingminoristaPage
     When the user selects product "PTMO. LIBRE DISPONIBILIDAD" and modality "NUEVO"
-    Then The Page says "Se guardó la operación con éxito."
+    Then The Page says "Se guardó la operación con éxito."""

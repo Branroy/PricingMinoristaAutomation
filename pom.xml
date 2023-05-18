@@ -110,6 +110,15 @@
             <artifactId>assertj-core</artifactId>
             <version>3.13.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>
@@ -119,11 +128,12 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>**/Test*.java</include>
+                        <!--<include>**/Test*.java</include>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                         <include>**/*TestCase.java</include>
-                        <include>**/When*.java</include>
+                        <include>**/When*.java</include>-->
+                        <include>**ParameterizedTest.java</include>
                     </includes>
                     <excludes>
                         <!--<exclude>**/Tests.java</exclude>-->
