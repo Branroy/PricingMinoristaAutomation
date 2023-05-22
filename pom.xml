@@ -133,7 +133,7 @@
                         <include>**/*Tests.java</include>
                         <include>**/*TestCase.java</include>
                         <include>**/When*.java</include>-->
-                        <include>**ParameterizedTest.java</include>
+                        <include>**PLDLibreDisponibilidadTarifarioTest.java</include>
                     </includes>
                     <excludes>
                         <!--<exclude>**/Tests.java</exclude>-->

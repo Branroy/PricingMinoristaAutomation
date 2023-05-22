@@ -29,7 +29,7 @@ public class BaseConf {
     @Before
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
-        actor = theActorCalled("Roy Actor");
+        actor = theActorCalled("Cotizador");
 
         actor.can(BrowseTheWeb.with(browser));
         browser.manage().window().maximize();
