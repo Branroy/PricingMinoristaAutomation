@@ -45,7 +45,7 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
                     SolicitudNuevoActions.nropagare(nropagare,modalidad),
                     SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"),
                     SolicitudNuevoActions.relacionlaboral("MIXTA"),
-                    SolicitudNuevoActions.ingresoneto(2000.00,requieresustento),
+                    SolicitudNuevoActions.ingresonetoconsustento(2000.00,requieresustento),
                     SolicitudNuevoActions.importe("PEN"),
                     SolicitudNuevoActions.montooperacion("30000.00"),
                     SolicitudNuevoActions.garantia("SIN GARANTIA"),

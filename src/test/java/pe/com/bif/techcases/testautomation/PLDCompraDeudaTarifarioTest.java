@@ -41,7 +41,7 @@ public class PLDCompraDeudaTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.modalidad(modalidad),
                 SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"),
                 SolicitudNuevoActions.relacionlaboral("INDEPENDIENTE"),
-                SolicitudNuevoActions.ingresoneto(1300.00,requieresustento),
+                SolicitudNuevoActions.ingresonetoconsustento(1300.00,requieresustento),
                 SolicitudNuevoActions.tasaadicionallibre(productoadicional),
 
                 SolicitudNuevoActions.entidad1("BCP",productoadicional),

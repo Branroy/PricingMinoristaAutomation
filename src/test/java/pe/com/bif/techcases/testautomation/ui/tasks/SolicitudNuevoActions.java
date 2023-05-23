@@ -54,6 +54,47 @@ public class SolicitudNuevoActions {
                 Select.option(modalidad).from(SolicitudNuevo.MODALIDAD));
     }
 
+    public static Performable nrovivienda(String nrovivienda) {
+        return Task.where("{0} select nro vivienda '" + nrovivienda + "'",
+                WaitUntil.the(SolicitudNuevo.NROVIVIENDA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(nrovivienda).from(SolicitudNuevo.NROVIVIENDA));
+    }
+
+    public static Performable tipobien(String tipobien) {
+        return Task.where("{0} select tipo de bien '" + tipobien + "'",
+                WaitUntil.the(SolicitudNuevo.TIPOBIEN, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(tipobien).from(SolicitudNuevo.TIPOBIEN));
+    }
+
+    public static Performable planahorro(String planahorro) {
+        if ("SI".equalsIgnoreCase(planahorro))
+        return Task.where("{0} select planahorro SI",
+                WaitUntil.the(SolicitudNuevo.PLANAHORRO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                JavaScriptClick.on(SolicitudNuevo.PLANAHORRO));
+        else{
+            return Task.where("{0} select planahorro NO");
+        }
+    }
+
+    public static Performable nombreproyecto(String nombreproyecto) {
+        return Task.where("{0} select nombre del proyecto '" + nombreproyecto + "'",
+                WaitUntil.the(SolicitudNuevo.NOMBREPROYECTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(nombreproyecto).from(SolicitudNuevo.NOMBREPROYECTO));
+    }
+
+    public static Performable precioinmueble(String precioinmueble) {
+        return Task.where("{0} select precio venta del inmueble '" + precioinmueble + "'",
+                WaitUntil.the(SolicitudNuevo.PRECIOINMUEBLE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(precioinmueble).from(SolicitudNuevo.PRECIOINMUEBLE));
+    }
+
+    public static Performable montoprecioinmueble(String montoprecioinmueble) {
+
+        return Task.where("{0} enters monto precio venta del inmueble '" + montoprecioinmueble + "'",
+                Clear.field(SolicitudNuevo.MONTOPRECIOINMUEBLE),
+                Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOPRECIOINMUEBLE),
+                Enter.theValue(montoprecioinmueble).into(SolicitudNuevo.MONTOPRECIOINMUEBLE));
+    }
     public static Performable nropagare(String nropagare,String modalidad) {
         if("REENGANCHE".equalsIgnoreCase(modalidad)){
             return Task.where("{0} select nro pagare '" + nropagare + "'",
@@ -70,6 +111,19 @@ public class SolicitudNuevoActions {
                 Select.option(tipoingreso).from(SolicitudNuevo.TIPOINGRESO));
     }
 
+    public static Performable tipoingresocodeudor(String codeudor) {
+        if ("SI".equalsIgnoreCase(codeudor)){
+        return Task.where("{0} select tipo de ingreso codeudor",
+                WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option("INGRESO CODEUDOR").from(SolicitudNuevo.TIPOINGRESO));
+        }else {
+            return Task.where("{0} select tipo de ingreso individual",
+                    WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option("INGRESO INDIVIDUAL").from(SolicitudNuevo.TIPOINGRESO));
+        }
+
+    }
+
     public static Performable relacionlaboral(String relacionlaboral) {
         return Task.where("{0} select tipo relacion laboral '" + relacionlaboral + "'",
                 WaitUntil.the(SolicitudNuevo.RELACIONLABORAL, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
@@ -77,7 +131,7 @@ public class SolicitudNuevoActions {
     }
 
 
-    public static Performable ingresoneto(double ingresoneto,String requieresustento) {
+    public static Performable ingresonetoconsustento(double ingresoneto,String requieresustento) {
 
         if ("NO".equalsIgnoreCase(requieresustento)){
             double min = Math.ceil(1);
@@ -99,6 +153,36 @@ public class SolicitudNuevoActions {
                     Enter.theValue(result).into(SolicitudNuevo.INGRESONETO));
         }
     }
+
+    public static Performable ingresonetosinsustento(String ingresoneto) {
+
+            return Task.where("{0} enters ingreso titular neto '" + ingresoneto + "'",
+                    Clear.field(SolicitudNuevo.INGRESONETO),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.INGRESONETO),
+                    Enter.theValue(ingresoneto).into(SolicitudNuevo.INGRESONETO));
+    }
+
+    public static Performable ingresonetoscodeudor(String ingresonetocodeudor) {
+
+        return Task.where("{0} enters ingreso titular neto '" + ingresonetocodeudor + "'",
+                Clear.field(SolicitudNuevo.INGRESONETOCODEUDOR),
+                Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.INGRESONETOCODEUDOR),
+                Enter.theValue(ingresonetocodeudor).into(SolicitudNuevo.INGRESONETOCODEUDOR));
+    }
+
+
+    public static Performable proyectobanco(String proyectobanco, String producto) {
+        if ("CREDITO TECHO PROPIO".equalsIgnoreCase(producto))
+            return Task.where("{0} select proyectobanco SI");
+        else if("SI".equalsIgnoreCase(proyectobanco)){
+            return Task.where("{0} select proyectobanco SI",
+                    WaitUntil.the(SolicitudNuevo.PROYECTOBANCO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.PROYECTOBANCO));
+        }else{
+            return Task.where("{0} select proyectobanco NO");
+        }
+    }
+
 
     public static Performable importe(String importe) {
         return Task.where("{0} select importe '" + importe + "'",

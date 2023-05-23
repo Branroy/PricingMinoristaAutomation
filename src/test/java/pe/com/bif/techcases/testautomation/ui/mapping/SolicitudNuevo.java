@@ -38,6 +38,11 @@ public class SolicitudNuevo {
             .the("modalidad")
             .located(By.xpath("//*[@id=\"cboModalidad\"]"));
 
+    public static final Target PLANAHORRO = Target
+            .the("planahorro")
+            .located(By.xpath("//*[@id=\"dvPlanAhorro\"]/div/div/div/div/label[1]"));
+
+    //TIPO DE INGRESO DEL CLIENTE:
     public static final Target TIPOINGRESO = Target
             .the("tipoingreso")
             .located(By.xpath("//*[@id=\"cboTipoIngreso\"]"));
@@ -49,6 +54,38 @@ public class SolicitudNuevo {
     public static final Target INGRESONETO = Target
             .the("ingresoneto")
             .located(By.xpath("//*[@id=\"txtIngresoEstimado\"]"));
+
+    public static final Target INGRESONETOCODEUDOR = Target
+            .the("ingresonetocodeudor")
+            .located(By.xpath("//*[@id=\"txtIngresoCodeudor\"]"));
+
+    //DATOS DEL BIEN
+
+    public static final Target NROVIVIENDA = Target
+            .the("nrovivienda")
+            .located(By.xpath("//*[@id=\"cboNroVivienda\"]"));
+
+    public static final Target TIPOBIEN = Target
+            .the("tipobien")
+            .located(By.xpath("//*[@id=\"cboTipoBien\"]"));
+
+    public static final Target PROYECTOBANCO = Target
+            .the("proyectobanco")
+            .located(By.xpath("//*[@id=\"dvProyectoBanco\"]/div/div/div/div/label[1]"));
+
+    public static final Target NOMBREPROYECTO = Target
+            .the("nombreproyecto")
+            .located(By.xpath("//*[@id=\"cboNombreProyecto\"]"));
+
+    public static final Target PRECIOINMUEBLE = Target
+            .the("precioinmueble")
+            .located(By.xpath("//*[@id=\"cboPVInmueble\"]"));
+
+    public static final Target MONTOPRECIOINMUEBLE = Target
+            .the("montoprecioinmueble")
+            .located(By.xpath("//*[@id=\"txtPrecioVenta\"]"));
+
+
 
 
     //DATOS ADICIONALES DEL PRODUCTO:

@@ -41,7 +41,7 @@ public class PLDCuentaSueldoMaestriaTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.modalidad("NUEVO"),
                 SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"),
                 SolicitudNuevoActions.relacionlaboral("MIXTA"),
-                SolicitudNuevoActions.ingresoneto(1300.00,requieresustento),
+                SolicitudNuevoActions.ingresonetoconsustento(1300.00,requieresustento),
                 SolicitudNuevoActions.importe("USD"),
                 SolicitudNuevoActions.montooperacion("60000.00"),
                 SolicitudNuevoActions.garantia("SIN GARANTIA"),
