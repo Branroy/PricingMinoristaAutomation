@@ -50,6 +50,73 @@ public class SolicitudNuevo {
             .the("ingresoneto")
             .located(By.xpath("//*[@id=\"txtIngresoEstimado\"]"));
 
+
+    //DATOS ADICIONALES DEL PRODUCTO:
+
+    public static final Target ENTIDAD1 = Target
+            .the("entidad1")
+            .located(By.xpath("//*[@id=\"cboEntidadDatosA_1\"]"));
+    public static final Target ENTIDAD2 = Target
+            .the("entidad2")
+            .located(By.xpath("//*[@id=\"cboEntidadDatosA_2\"]"));
+    public static final Target ENTIDAD3 = Target
+            .the("entidad3")
+            .located(By.xpath("//*[@id=\"cboEntidadDatosA_3\"]"));
+
+    public static final Target PRODUCTOCOMPRAR1 = Target
+            .the("productocomprar1")
+            .located(By.xpath("//*[@id=\"cboProductocomprarDatosA_1\"]"));
+    public static final Target PRODUCTOCOMPRAR2 = Target
+            .the("productocomprar2")
+            .located(By.xpath("//*[@id=\"cboProductocomprarDatosA_2\"]"));
+    public static final Target PRODUCTOCOMPRAR3 = Target
+            .the("productocomprar3")
+            .located(By.xpath("//*[@id=\"cboProductocomprarDatosA_3\"]"));
+
+    public static final Target DIVISAPRODUCTO1 = Target
+            .the("divisaproducto1")
+            .located(By.xpath("//*[@id=\"cboDivisaproductoDatosA_1\"]"));
+    public static final Target DIVISAPRODUCTO2 = Target
+            .the("divisaproducto2")
+            .located(By.xpath("//*[@id=\"cboDivisaproductoDatosA_2\"]"));
+    public static final Target DIVISAPRODUCTO3 = Target
+            .the("divisaproducto3")
+            .located(By.xpath("//*[@id=\"cboDivisaproductoDatosA_3\"]"));
+
+    public static final Target IMPORTECOMPRAR1 = Target
+            .the("importecomprar1")
+            .located(By.xpath("//*[@id=\"txtMontocomprarDatosA_1\"]"));
+    public static final Target IMPORTECOMPRAR2 = Target
+            .the("importecomprar2")
+            .located(By.xpath("//*[@id=\"txtMontocomprarDatosA_2\"]"));
+    public static final Target IMPORTECOMPRAR3 = Target
+            .the("importecomprar3")
+            .located(By.xpath("//*[@id=\"txtMontocomprarDatosA_3\"]"));
+
+    public static final Target IMPORTEADICIONALLIBRE1 = Target
+            .the("importeadicionallibre1")
+            .located(By.xpath("//*[@id=\"txtMontoadicionallibreDatosA_1\"]"));
+    public static final Target IMPORTEADICIONALLIBRE2 = Target
+            .the("importeadicionallibre2")
+            .located(By.xpath("//*[@id=\"txtMontoadicionallibreDatosA_2\"]"));
+    public static final Target IMPORTEADICIONALLIBRE3 = Target
+            .the("importeadicionallibre3")
+            .located(By.xpath("//*[@id=\"txtMontoadicionallibreDatosA_3\"]"));
+
+    public static final Target TEA1 = Target
+            .the("tea1")
+            .located(By.xpath("//*[@id=\"txtTasaDatosA_1\"]"));
+    public static final Target TEA2 = Target
+            .the("tea2")
+            .located(By.xpath("//*[@id=\"txtTasaDatosA_2\"]"));
+    public static final Target TEA3 = Target
+            .the("tea3")
+            .located(By.xpath("//*[@id=\"txtTasaDatosA_3\"]"));
+
+    public static final Target TASAADICIONALLIBRE = Target
+            .the("tasaadicionallibre")
+            .located(By.xpath("//*[@id=\"dvTasaAdicionalLibre\"]/div/i"));
+
     //3. DATOS DEL PRESTAMO
 
     public static final Target IMPORTE = Target

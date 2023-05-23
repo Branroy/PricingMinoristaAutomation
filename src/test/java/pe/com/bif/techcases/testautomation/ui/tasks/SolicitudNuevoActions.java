@@ -1,32 +1,13 @@
 package pe.com.bif.techcases.testautomation.ui.tasks;
 
-import net.serenitybdd.core.pages.WebElementState;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
-import net.serenitybdd.screenplay.actions.selectactions.SelectByIndexFromElement;
-import net.serenitybdd.screenplay.actions.selectactions.SelectByVisibleTextFromTarget;
-import net.serenitybdd.screenplay.ensure.Expectation;
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
-import net.serenitybdd.screenplay.matchers.statematchers.IsNotVisibleMatcher;
-import net.serenitybdd.screenplay.questions.Text;
-import net.serenitybdd.screenplay.questions.TextValue;
 import net.serenitybdd.screenplay.ui.Select;
-import net.serenitybdd.screenplay.ui.TextArea;
-import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import net.serenitybdd.screenplay.waits.WaitUntilTargetIsReady;
-import net.serenitybdd.screenplay.waits.WaitWithTimeout;
-import net.thucydides.core.steps.ScenarioSteps;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import pe.com.bif.techcases.testautomation.ui.mapping.Login;
 import pe.com.bif.techcases.testautomation.ui.mapping.SolicitudNuevo;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SolicitudNuevoActions {
     public static Performable nrodocumento(String nrodocumento) {
@@ -181,5 +162,253 @@ public class SolicitudNuevoActions {
                 Click.on(SolicitudNuevo.CONFIRMAROPERACION));
     }
 
+    public static Performable tasaadicionallibre(String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre) ){
+            return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'");
+        } else if ("2".equalsIgnoreCase(tasaadicionallibre)) {
+            return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
+                    JavaScriptClick.on(SolicitudNuevo.TASAADICIONALLIBRE));
+        /*}else if ("3".equalsIgnoreCase(tasaadicionallibre)){
+            return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
+                    Click.on(SolicitudNuevo.TASAADICIONALLIBRE),
+                    Click.on(SolicitudNuevo.TASAADICIONALLIBRE));*/
+        }else {
+            return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
+                    JavaScriptClick.on(SolicitudNuevo.TASAADICIONALLIBRE),
+                    JavaScriptClick.on(SolicitudNuevo.TASAADICIONALLIBRE));
+        }
+
+    }
+
+    public static Performable entidad1(String entidad1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select entidad1 '" + entidad1 + "'",
+                WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(entidad1).from(SolicitudNuevo.ENTIDAD1));
+        }else{
+            return Task.where("{0} select entidad1 '" + entidad1 + "'",
+                    WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(entidad1).from(SolicitudNuevo.ENTIDAD1));
+        }
+
+    }
+
+    public static Performable entidad2(String entidad2,String tasaadicionallibre) {
+            if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+                return Task.where("{0} select entidad2 '" + entidad2 + "'",
+                        WaitUntil.the(SolicitudNuevo.ENTIDAD2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                        Select.option(entidad2).from(SolicitudNuevo.ENTIDAD2));
+            }else{
+                return Task.where("{0} no aplica entidad2");
+            }
+    }
+
+    public static Performable entidad3(String entidad3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select entidad3 '" + entidad3 + "'",
+                    WaitUntil.the(SolicitudNuevo.ENTIDAD3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(entidad3).from(SolicitudNuevo.ENTIDAD3));
+        }else{
+            return Task.where("{0} no aplica entidad2");
+        }
+    }
+
+    public static Performable productocomprar1(String productocomprar1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select productocomprar1 '" + productocomprar1 + "'",
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(productocomprar1).from(SolicitudNuevo.PRODUCTOCOMPRAR1));
+        }else{
+            return Task.where("{0} select productocomprar1 '" + productocomprar1 + "'",
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(productocomprar1).from(SolicitudNuevo.PRODUCTOCOMPRAR1));
+        }
+
+    }
+
+    public static Performable productocomprar2(String productocomprar2,String tasaadicionallibre) {
+        if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select productocomprar2 '" + productocomprar2 + "'",
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(productocomprar2).from(SolicitudNuevo.PRODUCTOCOMPRAR2));
+        }else{
+            return Task.where("{0} no aplica productocomprar2");
+        }
+    }
+
+    public static Performable productocomprar3(String productocomprar3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select productocomprar3 '" + productocomprar3 + "'",
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(productocomprar3).from(SolicitudNuevo.PRODUCTOCOMPRAR3));
+        }else{
+            return Task.where("{0} no aplica productocomprar3");
+        }
+    }
+
+    public static Performable divisaproducto1(String divisaproducto1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select divisaproducto1 '" + divisaproducto1 + "'",
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(divisaproducto1).from(SolicitudNuevo.DIVISAPRODUCTO1));
+        }else{
+            return Task.where("{0} select divisaproducto1 '" + divisaproducto1 + "'",
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(divisaproducto1).from(SolicitudNuevo.DIVISAPRODUCTO1));
+        }
+
+    }
+
+    public static Performable divisaproducto2(String divisaproducto2,String tasaadicionallibre) {
+        if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select divisaproducto2 '" + divisaproducto2 + "'",
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(divisaproducto2).from(SolicitudNuevo.DIVISAPRODUCTO2));
+        }else{
+            return Task.where("{0} no aplica divisaproducto2");
+
+        }
+    }
+
+
+    public static Performable divisaproducto3(String divisaproducto3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select divisaproducto3 '" + divisaproducto3 + "'",
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(divisaproducto3).from(SolicitudNuevo.DIVISAPRODUCTO3));
+        }else{
+            return Task.where("{0} no aplica divisaproducto3");
+        }
+    }
+
+
+    public static Performable importecomprar1(String importecomprar1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+            return Task.where("{0} select importecomprar1 '" + importecomprar1 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTECOMPRAR1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTECOMPRAR1),
+                    Enter.theValue(importecomprar1).into(SolicitudNuevo.IMPORTECOMPRAR1));
+        }else{
+            return Task.where("{0} select importecomprar1 '" + importecomprar1 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTECOMPRAR1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTECOMPRAR1),
+                    Enter.theValue(importecomprar1).into(SolicitudNuevo.IMPORTECOMPRAR1));
+        }
+    }
+
+    public static Performable importecomprar2(String importecomprar2,String tasaadicionallibre) {
+        if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select importecomprar2 '" + importecomprar2 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTECOMPRAR2),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTECOMPRAR2),
+                    Enter.theValue(importecomprar2).into(SolicitudNuevo.IMPORTECOMPRAR2));
+        }else{
+            return Task.where("{0} no aplica importecomprar2");
+        }
+    }
+
+    public static Performable importecomprar3(String importecomprar3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select importecomprar3 '" + importecomprar3 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTECOMPRAR3),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTECOMPRAR3),
+                    Enter.theValue(importecomprar3).into(SolicitudNuevo.IMPORTECOMPRAR3));
+        }else{
+            return Task.where("{0} no aplica importecomprar3");
+        }
+    }
+
+    public static Performable importeadicionallibre1(String importeadicionallibre1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+            return Task.where("{0} select importeadicionallibre1 '" + importeadicionallibre1 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTEADICIONALLIBRE1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTEADICIONALLIBRE1),
+                    Enter.theValue(importeadicionallibre1).into(SolicitudNuevo.IMPORTEADICIONALLIBRE1));
+        }else{
+            return Task.where("{0} select importeadicionallibre1 '" + importeadicionallibre1 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTEADICIONALLIBRE1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTEADICIONALLIBRE1),
+                    Enter.theValue(importeadicionallibre1).into(SolicitudNuevo.IMPORTEADICIONALLIBRE1));
+        }
+    }
+
+    public static Performable importeadicionallibre2(String importeadicionallibre2,String tasaadicionallibre) {
+        if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select importeadicionallibre2 '" + importeadicionallibre2 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTEADICIONALLIBRE2),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTEADICIONALLIBRE2),
+                    Enter.theValue(importeadicionallibre2).into(SolicitudNuevo.IMPORTEADICIONALLIBRE2));
+        }else{
+            return Task.where("{0} no aplica importeadicionallibre2");
+        }
+    }
+
+    public static Performable importeadicionallibre3(String importeadicionallibre3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select importeadicionallibre3 '" + importeadicionallibre3 + "'",
+                    Clear.field(SolicitudNuevo.IMPORTEADICIONALLIBRE3),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTEADICIONALLIBRE3),
+                    Enter.theValue(importeadicionallibre3).into(SolicitudNuevo.IMPORTEADICIONALLIBRE3));
+        }else{
+            return Task.where("{0} no aplica importeadicionallibre3");
+        }
+    }
+
+    public static Performable tea1(String tea1,String tasaadicionallibre) {
+        if ("1".equalsIgnoreCase(tasaadicionallibre)|| "".equalsIgnoreCase(tasaadicionallibre) || "0".equalsIgnoreCase(tasaadicionallibre)
+                || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+            return Task.where("{0} select tea1 '" + tea1 + "'",
+                    Clear.field(SolicitudNuevo.TEA1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TEA1),
+                    Enter.theValue(tea1).into(SolicitudNuevo.TEA1));
+        }else{
+            return Task.where("{0} select tea1 '" + tea1 + "'",
+                    Clear.field(SolicitudNuevo.TEA1),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TEA1),
+                    Enter.theValue(tea1).into(SolicitudNuevo.TEA1));
+        }
+    }
+
+    public static Performable tea2(String tea2,String tasaadicionallibre) {
+        if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select tea2 '" + tea2 + "'",
+                    Clear.field(SolicitudNuevo.TEA2),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TEA2),
+                    Enter.theValue(tea2).into(SolicitudNuevo.TEA2));
+        }else{
+            return Task.where("{0} no aplica tea2");
+        }
+    }
+
+    public static Performable tea3(String tea3,String tasaadicionallibre) {
+        if ("3".equalsIgnoreCase(tasaadicionallibre)){
+
+            return Task.where("{0} select tea3 '" + tea3 + "'",
+                    Clear.field(SolicitudNuevo.TEA3),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TEA3),
+                    Enter.theValue(tea3).into(SolicitudNuevo.TEA3));
+        }else{
+            return Task.where("{0} no aplica tea3");
+        }
+    }
 
 }
