@@ -135,8 +135,9 @@
                         <include>**/When*.java</include>
                         <include>**PLDLibreDisponibilidadTarifarioTest.java</include>
                         <include>**PLDCuentaSueldoMaestriaTarifarioTest.java</include>
-                        <include>**PLDCompraDeudaTarifarioTest.java</include>-->
-                        <include>**HIPOTarifarioTest.java</include>
+                        <include>**PLDCompraDeudaTarifarioTest.java</include>
+                        <include>**HIPOTarifarioTest.java</include>-->
+                        <include>**VEHITarifarioTest.java</include>
                     </includes>
                     <excludes>
                         <!--<exclude>**/Tests.java</exclude>-->

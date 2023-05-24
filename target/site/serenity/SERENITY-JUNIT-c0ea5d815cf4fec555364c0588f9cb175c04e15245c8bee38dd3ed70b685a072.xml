@@ -1,1 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="pe.com.bif.techcases.testautomation.HIPOTarifarioTest" skipped="0" tests="1" time="33.7" timestamp="2023-05-23 01:54:14"><testcase classname="pe.com.bif.techcases.testautomation.HIPOTarifarioTest" name="Cotizacion tarifario HIPOTECARIO"/></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="pe.com.bif.techcases.testautomation.HIPOTarifarioTest" skipped="0" tests="1" time="18.44" timestamp="2023-05-23 11:16:50"><testcase classname="pe.com.bif.techcases.testautomation.HIPOTarifarioTest" name="Cotizacion tarifario HIPOTECARIO"><failure message="Expected condition failed: waiting for By.xpath: //*[@id=&quot;optNuevaCotizacion&quot;]/a to be present (tried for 5 second(s) with 100 milliseconds interval)&#10;Build info: version: '4.8.1', revision: '8ebccac989'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'&#10;Driver info: driver.version: unknown&#10;Build info: version: '4.8.1', revision: '8ebccac989'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'&#10;Driver info: driver.version: unknown" type="net.thucydides.core.webdriver.exceptions.ElementShouldBePresentException">Expected condition failed: waiting for By.xpath: //*[@id="optNuevaCotizacion"]/a to be present (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: driver.version: unknown
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: driver.version: unknown</failure><system-err>Expected condition failed: waiting for By.xpath: //*[@id="optNuevaCotizacion"]/a to be present (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: driver.version: unknown
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: driver.version: unknown&#13;
+pe.com.bif.techcases.testautomation.HIPOTarifarioTest.CotizacionTarifarioHIPOTECARIO(HIPOTarifarioTest.java:34)&#13;
+</system-err></testcase></testsuite>

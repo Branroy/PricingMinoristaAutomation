@@ -59,7 +59,7 @@ public class SolicitudNuevo {
             .the("ingresonetocodeudor")
             .located(By.xpath("//*[@id=\"txtIngresoCodeudor\"]"));
 
-    //DATOS DEL BIEN
+    //DATOS DEL BIEN -- HIPOTECARIO
 
     public static final Target NROVIVIENDA = Target
             .the("nrovivienda")
@@ -85,10 +85,41 @@ public class SolicitudNuevo {
             .the("montoprecioinmueble")
             .located(By.xpath("//*[@id=\"txtPrecioVenta\"]"));
 
+    //DATOS DEL BIEN -- VEHICULAR
 
+    public static final Target CONCESIONARIO = Target
+            .the("concesionario")
+            .located(By.xpath("//*[@id=\"cboConcesionario\"]"));
 
+    public static final Target MARCA = Target
+            .the("marca")
+            .located(By.xpath("//*[@id=\"cboMarca\"]"));
 
-    //DATOS ADICIONALES DEL PRODUCTO:
+    public static final Target MODELO = Target
+            .the("modelo")
+            .located(By.xpath("//*[@id=\"txtModelo\"]"));
+
+    public static final Target PRECIOVEHICULO = Target
+            .the("preciovehiculo")
+            .located(By.xpath("//*[@id=\"cboPVVehiculo\"]"));
+
+    public static final Target MONTOPRECIOVEHICULO = Target
+            .the("montopreciovehiculo")
+            .located(By.xpath("//*[@id=\"txtPrecioVentaVehiculo\"]"));
+
+    public static final Target COMISION = Target
+            .the("comision")
+            .located(By.xpath("//*[@id=\"cboComisionPara\"]"));
+
+    public static final Target TASACOMISION = Target
+            .the("tasacomision")
+            .located(By.xpath("//*[@id=\"txtComision\"]"));
+
+    public static final Target CLASIFICACION = Target
+            .the("clasificacion")
+            .located(By.xpath("//*[@id=\"cboClasificacioncliente\"]"));
+
+    //DATOS ADICIONALES DEL PRODUCTO - COMPRA DEUDA:
 
     public static final Target ENTIDAD1 = Target
             .the("entidad1")

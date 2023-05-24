@@ -54,11 +54,13 @@ public class SolicitudNuevoActions {
                 Select.option(modalidad).from(SolicitudNuevo.MODALIDAD));
     }
 
+    // DATOS DEL BIEN: Hipotecario
     public static Performable nrovivienda(String nrovivienda) {
         return Task.where("{0} select nro vivienda '" + nrovivienda + "'",
                 WaitUntil.the(SolicitudNuevo.NROVIVIENDA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                 Select.option(nrovivienda).from(SolicitudNuevo.NROVIVIENDA));
     }
+
 
     public static Performable tipobien(String tipobien) {
         return Task.where("{0} select tipo de bien '" + tipobien + "'",
@@ -83,7 +85,7 @@ public class SolicitudNuevoActions {
     }
 
     public static Performable precioinmueble(String precioinmueble) {
-        return Task.where("{0} select precio venta del inmueble '" + precioinmueble + "'",
+        return Task.where("{0} select moneda venta del inmueble '" + precioinmueble + "'",
                 WaitUntil.the(SolicitudNuevo.PRECIOINMUEBLE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                 Select.option(precioinmueble).from(SolicitudNuevo.PRECIOINMUEBLE));
     }
@@ -123,6 +125,7 @@ public class SolicitudNuevoActions {
         }
 
     }
+
 
     public static Performable relacionlaboral(String relacionlaboral) {
         return Task.where("{0} select tipo relacion laboral '" + relacionlaboral + "'",
@@ -182,7 +185,59 @@ public class SolicitudNuevoActions {
             return Task.where("{0} select proyectobanco NO");
         }
     }
+    //DATOS DEL BIEN: VEHICULAR
+    public static Performable concesionario(String concesionario) {
+        return Task.where("{0} select concesionario '" + concesionario + "'",
+                WaitUntil.the(SolicitudNuevo.CONCESIONARIO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(concesionario).from(SolicitudNuevo.CONCESIONARIO));
+    }
 
+    public static Performable marca(String marca) {
+        return Task.where("{0} select marca '" + marca + "'",
+                WaitUntil.the(SolicitudNuevo.MARCA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(marca).from(SolicitudNuevo.MARCA));
+    }
+
+    public static Performable modelo(String modelo) {
+        return Task.where("{0} enters modelo '" + modelo + "'",
+                Clear.field(SolicitudNuevo.MODELO),
+                Enter.theValue(modelo).into(SolicitudNuevo.MODELO));
+    }
+
+    public static Performable preciovehiculo(String preciovehiculo) {
+        return Task.where("{0} select moenda venta del vehiculo '" + preciovehiculo + "'",
+                WaitUntil.the(SolicitudNuevo.PRECIOVEHICULO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(preciovehiculo).from(SolicitudNuevo.PRECIOVEHICULO));
+    }
+
+    public static Performable montopreciovehiculo(String montopreciovehiculo) {
+        return Task.where("{0} enters monto precio del vehiculo '" + montopreciovehiculo + "'",
+                Clear.field(SolicitudNuevo.MONTOPRECIOVEHICULO),
+                Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOPRECIOVEHICULO),
+                Enter.theValue(montopreciovehiculo).into(SolicitudNuevo.MONTOPRECIOVEHICULO));
+    }
+
+    public static Performable comision(String comision) {
+        return Task.where("{0} select comisión para '" + comision + "'",
+                WaitUntil.the(SolicitudNuevo.COMISION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(comision).from(SolicitudNuevo.COMISION));
+    }
+
+    public static Performable tasacomision(String tasacomision) {
+        return Task.where("{0} enters % comisión '" + tasacomision + "'",
+                Clear.field(SolicitudNuevo.TASACOMISION),
+                Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TASACOMISION),
+                Enter.theValue(tasacomision).into(SolicitudNuevo.TASACOMISION));
+    }
+
+    public static Performable clasificacion(String clasificacion,String comision) {
+        if ("AMICAR".equalsIgnoreCase(clasificacion)){
+            return Task.where("{0} select comisión para '" + clasificacion + "'",
+                    WaitUntil.the(SolicitudNuevo.CLASIFICACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    Select.option(clasificacion).from(SolicitudNuevo.CLASIFICACION));
+        }
+        return Task.where("{0} clasificación no aplica");
+    }
 
     public static Performable importe(String importe) {
         return Task.where("{0} select importe '" + importe + "'",
