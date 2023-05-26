@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="af3e55c97a08b638d6adcf1bcb60c568ac19c4a9cdf0ad5b081e30884d2e212b.html">PJ Tarifario Test</a></span>
+                > <span class="truncate-60"><a
+                    href="0ded0c291c7d4f69c0b19a2319f53081b530d20a21827d3c6e80c54b31487920.html">Cotizacion tarifario HIPOTECARIO </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-05-2023 01:54</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">PJ Tarifario Test</span>
+                                    <span class="badge tag-badge" style="">Story</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">Chrome, Windows
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Cotizacion tarifario HIPOTECARIO
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Cotizador opens the Sign Up  page<br>Cotizador enters usuario '&lt;USUARIO&gt;'<br>Cotizador enters password '&lt;PASSWORD&gt;'<br>Cotizador click on entrar<br>Cotizador click on nueva Cotización<br>Cotizador select tipo producto 'RUC'<br>Cotizador enters nro documento '&lt;NRODOCUMENTO&gt;'<br>Cotizador click on buscar cliente<br>Cotizador no aplica ingreso de nombre cliente<br>Cotizador select macroproducto '&lt;PRODUCTO&gt;'<br>Cotizador select producto '&lt;PRODUCTO&gt;'<br>Cotizador select modalidad '&lt;MODALIDAD&gt;'<br>Cotizador select amortización &lt;ESCLIENTE&gt;<br>Cotizador select tipo desembolso &lt;ESCLIENTE&gt;<br>Cotizador select importe 'USD'<br>Cotizador enters monto de operacion '1500000.00'<br>Cotizador select garantia 'OTRAS GARANTIAS'<br>Cotizador select plazo 'AÑO'<br>Cotizador enters nroplazo '1'<br>Cotizador click on calcular tasa<br>Cotizador click on guardar operacion<br>Cotizador click on confirmar operación</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="b33a2716edefc3d9446a69ab9978ff5d93c7843a6a630fbaf299c28aaeea7ad8.png" title=" Cotizacion tarifario HIPOTECARIO " width="1920"/>
+                <img src="b33a2716edefc3d9446a69ab9978ff5d93c7843a6a630fbaf299c28aaeea7ad8.png" title=" Cotizador opens the Sign Up  page" width="1920"/>
+                <img src="b33a2716edefc3d9446a69ab9978ff5d93c7843a6a630fbaf299c28aaeea7ad8.png" title=" Cotizador opens the browser at http://bif3pricing10/PricingMinoristaInc/Login" width="1920"/>
+                <img src="897af1d01c2d46a31f6a7ef4b194daf7d6790915cfddb00fc8fe141a8fcf7918.png" title=" Cotizador opens the browser at http://bif3pricing10/PricingMinoristaInc/Login (completed)" width="1920"/>
+                <img src="897af1d01c2d46a31f6a7ef4b194daf7d6790915cfddb00fc8fe141a8fcf7918.png" title=" Cotizador opens the Sign Up  page (completed)" width="1920"/>
+                <img src="897af1d01c2d46a31f6a7ef4b194daf7d6790915cfddb00fc8fe141a8fcf7918.png" title=" Cotizador enters usuario 'MPIEDRA'" width="1920"/>
+                <img src="897af1d01c2d46a31f6a7ef4b194daf7d6790915cfddb00fc8fe141a8fcf7918.png" title=" Cotizador clears field usuario" width="1920"/>
+                <img src="7cf3e411e00dc10a32424f7198e1c5b2b12dd147b0f3d0c664eb1399822db5ba.png" title=" Cotizador enters 'MPIEDRA' into usuario" width="1920"/>
+                <img src="7cf3e411e00dc10a32424f7198e1c5b2b12dd147b0f3d0c664eb1399822db5ba.png" title=" Cotizador enters usuario 'MPIEDRA' (completed)" width="1920"/>
+                <img src="2e4a41739f89f79a3afdcfa43b2f67222e7e1b446ac27004c202c5d5cbbc93b3.png" title=" Cotizador enters password '123456789'" width="1920"/>
+                <img src="2e4a41739f89f79a3afdcfa43b2f67222e7e1b446ac27004c202c5d5cbbc93b3.png" title=" Cotizador clears field password" width="1920"/>
+                <img src="2e4a41739f89f79a3afdcfa43b2f67222e7e1b446ac27004c202c5d5cbbc93b3.png" title=" Cotizador enters '123456789' into password" width="1920"/>
+                <img src="56644533264d129c886aa45e54c0726341f1fcd41ad39decbfe1f2d04bfd382f.png" title=" Cotizador enters '123456789' into password (completed)" width="1920"/>
+                <img src="56644533264d129c886aa45e54c0726341f1fcd41ad39decbfe1f2d04bfd382f.png" title=" Cotizador enters password '123456789' (completed)" width="1920"/>
+                <img src="1087b16212f210af93cdb27b24e06031bf3babc58c63b40c4375ee87b993ea34.png" title=" Cotizador click on entrar" width="1920"/>
+                <img src="1087b16212f210af93cdb27b24e06031bf3babc58c63b40c4375ee87b993ea34.png" title=" Cotizador clicks on entrar" width="1920"/>
+                <img src="1087b16212f210af93cdb27b24e06031bf3babc58c63b40c4375ee87b993ea34.png" title=" Cotizador click on entrar (completed)" width="1920"/>
+                <img src="753f4cb95519b98a3d2b6234c34512dcb5af1cb8ee94df9d3df3d67685cb95a7.png" title=" Cotizador click on nueva Cotizaci&oacute;n" width="1920"/>
+                <img src="753f4cb95519b98a3d2b6234c34512dcb5af1cb8ee94df9d3df3d67685cb95a7.png" title=" Cotizador clicks on nuevacotizacion" width="1920"/>
+                <img src="b4ddb000a10629727183dd94ee6b9e3c955f7dfb7e30e3ff558f5d0e7fcb3b68.png" title=" Cotizador clicks on nuevacotizacion (completed)" width="1920"/>
+                <img src="b4ddb000a10629727183dd94ee6b9e3c955f7dfb7e30e3ff558f5d0e7fcb3b68.png" title=" Cotizador click on nueva Cotizaci&oacute;n (completed)" width="1920"/>
+                <img src="a6c40e8e2426e292a55fca6f0579541388b04789385bd1ebeabda4542a167c8a.png" title=" Cotizador select tipo producto 'RUC'" width="1920"/>
+                <img src="a6c40e8e2426e292a55fca6f0579541388b04789385bd1ebeabda4542a167c8a.png" title=" Cotizador selects RUC on tipodocumento" width="1920"/>
+                <img src="0dd470dffb10a280e06e51c0a18864d3e222b445a1bcd9cdff8a2e73a0812817.png" title=" Cotizador selects RUC on tipodocumento (completed)" width="1920"/>
+                <img src="0dd470dffb10a280e06e51c0a18864d3e222b445a1bcd9cdff8a2e73a0812817.png" title=" Cotizador select tipo producto 'RUC' (completed)" width="1920"/>
+                <img src="0dd470dffb10a280e06e51c0a18864d3e222b445a1bcd9cdff8a2e73a0812817.png" title=" Cotizador enters nro documento '20568362099'" width="1920"/>
+                <img src="0dd470dffb10a280e06e51c0a18864d3e222b445a1bcd9cdff8a2e73a0812817.png" title=" Cotizador clears field nrodocumento" width="1920"/>
+                <img src="37d374ee19bf80b5bfb14f1f73cdd0646f15e1ec76115a7c6c3f41e5ab387328.png" title=" Cotizador enters '20568362099' into nrodocumento" width="1920"/>
+                <img src="37d374ee19bf80b5bfb14f1f73cdd0646f15e1ec76115a7c6c3f41e5ab387328.png" title=" Cotizador enters nro documento '20568362099' (completed)" width="1920"/>
+                <img src="a7d28a90b7180e7d3bc1763616573a7b43ce6332c6e5ecb2602417dea8bcbf01.png" title=" Cotizador click on buscar cliente" width="1920"/>
+                <img src="a7d28a90b7180e7d3bc1763616573a7b43ce6332c6e5ecb2602417dea8bcbf01.png" title=" Cotizador clicks on buscarcliente" width="1920"/>
+                <img src="ca3cffa4336dd88bf7f8e56aef940e523d755be62de99aab3a360c92529d0273.png" title=" Cotizador clicks on buscarcliente (completed)" width="1920"/>
+                <img src="ca3cffa4336dd88bf7f8e56aef940e523d755be62de99aab3a360c92529d0273.png" title=" Cotizador click on buscar cliente (completed)" width="1920"/>
+                <img src="ca3cffa4336dd88bf7f8e56aef940e523d755be62de99aab3a360c92529d0273.png" title=" Cotizador no aplica ingreso de nombre cliente" width="1920"/>
+                <img src="e53d28e02c94596d4cc33384cf075b01b3a5f6b92c0fa8f827a81483eeb30560.png" title=" Cotizador select macroproducto 'COMEX'" width="1920"/>
+                <img src="16070def083c67dce1fff41815a9ce1440e2d55ffe74f10c923c3867766d4d89.png" title=" Cotizador selects COMEX on macroproducto" width="1920"/>
+                <img src="9f3ecea377ed9df8f981b0729495386d7b999db7b2c372aa990dcf9d9076997d.png" title=" Cotizador selects COMEX on macroproducto (completed)" width="1920"/>
+                <img src="9f3ecea377ed9df8f981b0729495386d7b999db7b2c372aa990dcf9d9076997d.png" title=" Cotizador select macroproducto 'COMEX' (completed)" width="1920"/>
+                <img src="7ef6e7f1925b939b4c40fa64a0e947e95e5ec4a7ba937041c40037d1fc63107f.png" title=" Cotizador select producto 'COMEX'" width="1920"/>
+                <img src="7ef6e7f1925b939b4c40fa64a0e947e95e5ec4a7ba937041c40037d1fc63107f.png" title=" Cotizador selects COMEX on producto" width="1920"/>
+                <img src="1908466bad6bcde21d93d89b2b0641238e52f79bf8f2eb8f9de0ee0048bae74f.png" title=" Cotizador selects COMEX on producto (completed)" width="1920"/>
+                <img src="1908466bad6bcde21d93d89b2b0641238e52f79bf8f2eb8f9de0ee0048bae74f.png" title=" Cotizador select producto 'COMEX' (completed)" width="1920"/>
+                <img src="14d684975b3e3eb39dd3b75155e0a72ececc104fca7f5ed6ce9a7edae46c3223.png" title=" Cotizador select modalidad 'LINEA'" width="1920"/>
+                <img src="14d684975b3e3eb39dd3b75155e0a72ececc104fca7f5ed6ce9a7edae46c3223.png" title=" Cotizador selects LINEA on modalidad" width="1920"/>
+                <img src="b011a98d757a9705cb5234f72a22a3428c510f235e4dfcbc4194d1ff910b7e5c.png" title=" Cotizador selects LINEA on modalidad (completed)" width="1920"/>
+                <img src="b011a98d757a9705cb5234f72a22a3428c510f235e4dfcbc4194d1ff910b7e5c.png" title=" Cotizador select modalidad 'LINEA' (completed)" width="1920"/>
+                <img src="02f3e72fea8ad1d556b2f65478cf9f7ae251ed0e10ca1399bc09499c2258dfde.png" title=" Cotizador select amortizaci&oacute;n SI" width="1920"/>
+                <img src="02f3e72fea8ad1d556b2f65478cf9f7ae251ed0e10ca1399bc09499c2258dfde.png" title=" Cotizador clicks on amortizacion" width="1920"/>
+                <img src="8887c41615d28f72fc6ba848ab3be2de8d34eea9b1e2be22aa0703260a93f9a3.png" title=" Cotizador clicks on amortizacion (completed)" width="1920"/>
+                <img src="8887c41615d28f72fc6ba848ab3be2de8d34eea9b1e2be22aa0703260a93f9a3.png" title=" Cotizador select amortizaci&oacute;n SI (completed)" width="1920"/>
+                <img src="0cd7baf34ae3701c2b2c42c1aadb594b88c94d313d71333e5a2cc558c650d44d.png" title=" Cotizador select tipo desembolso SI" width="1920"/>
+                <img src="0cd7baf34ae3701c2b2c42c1aadb594b88c94d313d71333e5a2cc558c650d44d.png" title=" Cotizador clicks on tipodesembolso" width="1920"/>
+                <img src="2f91eedf4f046e7576434fd1616887224e9277bd9b3a862e9ab1c6d4f72f3a68.png" title=" Cotizador clicks on tipodesembolso (completed)" width="1920"/>
+                <img src="2f91eedf4f046e7576434fd1616887224e9277bd9b3a862e9ab1c6d4f72f3a68.png" title=" Cotizador select tipo desembolso SI (completed)" width="1920"/>
+                <img src="4ffa4e8a9c123cf969ad82c048c160f34df36413af1bdd55e5e01600a3bf6c87.png" title=" Cotizador select importe 'USD'" width="1920"/>
+                <img src="4ffa4e8a9c123cf969ad82c048c160f34df36413af1bdd55e5e01600a3bf6c87.png" title=" Cotizador selects USD on importe" width="1920"/>
+                <img src="936988f8164917ebb8df187abbaecac484c274fd18792112eb3dc558b80d300f.png" title=" Cotizador selects USD on importe (completed)" width="1920"/>
+                <img src="936988f8164917ebb8df187abbaecac484c274fd18792112eb3dc558b80d300f.png" title=" Cotizador select importe 'USD' (completed)" width="1920"/>
+                <img src="936988f8164917ebb8df187abbaecac484c274fd18792112eb3dc558b80d300f.png" title=" Cotizador enters monto de operacion '1500000.00'" width="1920"/>
+                <img src="936988f8164917ebb8df187abbaecac484c274fd18792112eb3dc558b80d300f.png" title=" Cotizador clears field montooperacion" width="1920"/>
+                <img src="b6c2f196ed6332b91d621133c5cbabc34eaf6637f668ae588f2de2891d71c56d.png" title=" Cotizador enters ARROW_RIGHT into montooperacion" width="1920"/>
+                <img src="b6c2f196ed6332b91d621133c5cbabc34eaf6637f668ae588f2de2891d71c56d.png" title=" Cotizador enters '1500000.00' into montooperacion" width="1920"/>
+                <img src="6f3812140ef58a354742b5e25978d8bc1238e5c5bd1ce8dc10cbb76c9d6af20e.png" title=" Cotizador enters '1500000.00' into montooperacion (completed)" width="1920"/>
+                <img src="6f3812140ef58a354742b5e25978d8bc1238e5c5bd1ce8dc10cbb76c9d6af20e.png" title=" Cotizador enters monto de operacion '1500000.00' (completed)" width="1920"/>
+                <img src="94fdae5f9ae36986cde57664b78572f0eb673fbee522ad5afbf94ed262dfdf35.png" title=" Cotizador select garantia 'OTRAS GARANTIAS'" width="1920"/>
+                <img src="94fdae5f9ae36986cde57664b78572f0eb673fbee522ad5afbf94ed262dfdf35.png" title=" Cotizador selects OTRAS GARANTIAS on garantia" width="1920"/>
+                <img src="94fdae5f9ae36986cde57664b78572f0eb673fbee522ad5afbf94ed262dfdf35.png" title=" Cotizador select garantia 'OTRAS GARANTIAS' (completed)" width="1920"/>
+                <img src="723dda6c242bf7acfae5253d032be17b8b334b773d711967c6cf20718304e19f.png" title=" Cotizador select plazo 'A&Ntilde;O'" width="1920"/>
+                <img src="723dda6c242bf7acfae5253d032be17b8b334b773d711967c6cf20718304e19f.png" title=" Cotizador selects A&Ntilde;O on plazo" width="1920"/>
+                <img src="6a4c956c8403f43ac74f2256fbf0fafa4438fa038ce6530db37e576eaf00bc51.png" title=" Cotizador selects A&Ntilde;O on plazo (completed)" width="1920"/>
+                <img src="6a4c956c8403f43ac74f2256fbf0fafa4438fa038ce6530db37e576eaf00bc51.png" title=" Cotizador select plazo 'A&Ntilde;O' (completed)" width="1920"/>
+                <img src="6a4c956c8403f43ac74f2256fbf0fafa4438fa038ce6530db37e576eaf00bc51.png" title=" Cotizador enters nroplazo '1'" width="1920"/>
+                <img src="6a4c956c8403f43ac74f2256fbf0fafa4438fa038ce6530db37e576eaf00bc51.png" title=" Cotizador clears field nroplazo" width="1920"/>
+                <img src="37715b3ea7bc9c47385de6610b94af8e0a41a1f70aad793763e218f5b0a082a3.png" title=" Cotizador enters ARROW_RIGHT into nroplazo" width="1920"/>
+                <img src="37715b3ea7bc9c47385de6610b94af8e0a41a1f70aad793763e218f5b0a082a3.png" title=" Cotizador enters '1' into nroplazo" width="1920"/>
+                <img src="3014a69637f4f8e09496669092769f15658f095b302633e75e8d8d03e378d593.png" title=" Cotizador enters '1' into nroplazo (completed)" width="1920"/>
+                <img src="3014a69637f4f8e09496669092769f15658f095b302633e75e8d8d03e378d593.png" title=" Cotizador enters nroplazo '1' (completed)" width="1920"/>
+                <img src="277ef55c752bcadb8dbe4cdc0b2bf421a2fd6cb9d77dba7f9cb5ebf75696f2bc.png" title=" Cotizador click on calcular tasa" width="1920"/>
+                <img src="277ef55c752bcadb8dbe4cdc0b2bf421a2fd6cb9d77dba7f9cb5ebf75696f2bc.png" title=" Cotizador clicks on calculartasa" width="1920"/>
+                <img src="277ef55c752bcadb8dbe4cdc0b2bf421a2fd6cb9d77dba7f9cb5ebf75696f2bc.png" title=" Cotizador click on calcular tasa (completed)" width="1920"/>
+                <img src="c46f82e5f44ca8bbd9be2789e34be3dc22a42cd6413feec01c0f01fa5b3f411e.png" title=" Cotizador click on guardar operacion" width="1920"/>
+                <img src="c46f82e5f44ca8bbd9be2789e34be3dc22a42cd6413feec01c0f01fa5b3f411e.png" title=" Cotizador clicks on guardaroperacion" width="1920"/>
+                <img src="bbd92735f707534c0d950da968ba04e0b3b3b98e373f00ddcaf91d709f209cda.png" title=" Cotizador clicks on guardaroperacion (completed)" width="1920"/>
+                <img src="bbd92735f707534c0d950da968ba04e0b3b3b98e373f00ddcaf91d709f209cda.png" title=" Cotizador click on guardar operacion (completed)" width="1920"/>
+                <img src="6d7dcffe168defdae8b261d1909d353a56b3a33cfa33edd0d8f099c92127c4f3.png" title=" Cotizador click on confirmar operaci&oacute;n" width="1920"/>
+                <img src="6d7dcffe168defdae8b261d1909d353a56b3a33cfa33edd0d8f099c92127c4f3.png" title=" Cotizador clicks on confirmaroperacion" width="1920"/>
+                <img src="b9ab96f574c742e494cb5c258a50d04a050522bb07794381e7d3c8ad51e52540.png" title=" Cotizador clicks on confirmaroperacion (completed)" width="1920"/>
+                <img src="f3ca54e267af78a96b22d34ae9505c22e1a36c2336dacff8edf0cd1060ad1051.png" title=" Cotizador click on confirmar operaci&oacute;n (completed): <span class='success-color'>SUCCESS</span>" width="1920"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.6.15</span>
+</div>
+</body>
+</html>

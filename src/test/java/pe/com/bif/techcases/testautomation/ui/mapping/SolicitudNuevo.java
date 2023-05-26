@@ -7,6 +7,13 @@ public class SolicitudNuevo {
 
     //INGRESO DE DATOS
     //1. DATOS DEL CLIENTE
+
+    public static final Target TIPODOCUMENTO = Target
+            .the("tipodocumento")
+            .located(By.xpath("//*[@id=\"cboTipoDocumento\"]"));
+
+
+
     public static final Target NRODOCUMENTO = Target
             .the("nrodocumento")
             .located(By.xpath("//*[@id=\"txtNroDocumento\"]"));
@@ -41,6 +48,19 @@ public class SolicitudNuevo {
     public static final Target PLANAHORRO = Target
             .the("planahorro")
             .located(By.xpath("//*[@id=\"dvPlanAhorro\"]/div/div/div/div/label[1]"));
+
+    public static final Target AMORTIZACION = Target
+            .the("amortizacion")
+            .located(By.xpath("//*[@id=\"dvPRDAmortiza\"]/div/div/div/div/label[2]"));
+
+
+    public static final Target TIPODESEMBOLSO = Target
+            .the("tipodesembolso")
+            .located(By.xpath("//*[@id=\"dvTipoDesembolso\"]/div/div/div/div/label[2]"));
+
+
+
+
 
     //TIPO DE INGRESO DEL CLIENTE:
     public static final Target TIPOINGRESO = Target
@@ -243,6 +263,13 @@ public class SolicitudNuevo {
             .the("confirmaralertacliente")
             .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
 
+    //3. DATOS DEL PRESTAMO
+
+    public static final Target CUOTAINICIAL = Target
+            .the("cuotainicial")
+            .located(By.xpath("//*[@id=\"txtCuotaInicial\"]"));
+
+
 
     //4. TASAS SUGERIDAS
 
@@ -253,6 +280,17 @@ public class SolicitudNuevo {
     public static final Target OPERACIONEXISTO = Target
             .the("operacionexisto")
             .located(By.xpath("//*[@id=\"swal2-content\"]"));
+
+    public static final Target FONDOTASAPRODUCTO = Target
+            .the("fondotasaproducto")
+            .located(By.xpath("//*[@id=\"pnlDatosTEA\"]/div/div/div"));
+
+    public static final Target CHECKEXISTO = Target
+            .the("checkexito")
+            .located(By.xpath("//*[@id=\"swal2-content\"]"));
+
+
+
 
 
 

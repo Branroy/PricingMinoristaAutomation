@@ -42,25 +42,25 @@ public class VEHITarifarioTest extends BaseConf {
                 SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"),
                 SolicitudNuevoActions.relacionlaboral("INDEPENDIENTE"),
                 SolicitudNuevoActions.ingresonetoconsustento(15000.00,requieresustento),
+                SolicitudNuevoActions.preciovehiculo("PEN"),
+                SolicitudNuevoActions.montopreciovehiculo("100000.00"),
+                SolicitudNuevoActions.importe("PEN"),
+                SolicitudNuevoActions.montooperacion("80000.00"),
                 SolicitudNuevoActions.concesionario("INCHCAPE LATAM PERU SA"),
                 SolicitudNuevoActions.marca("RAM"),
                 SolicitudNuevoActions.modelo("MODELOTEST"),
-                SolicitudNuevoActions.preciovehiculo("USD"),
-                SolicitudNuevoActions.montopreciovehiculo("100200.00"),
                 SolicitudNuevoActions.comision(comision),
                 SolicitudNuevoActions.tasacomision("2.00"),
                 SolicitudNuevoActions.clasificacion(clasificacion,comision),
-                SolicitudNuevoActions.importe("USD"),
-                SolicitudNuevoActions.montooperacion("60000.00"),
-                SolicitudNuevoActions.garantia("GARANTIA INMOBILIARIA"),
+                SolicitudNuevoActions.garantia("GARANTIA MOBILIARIA"),
                 SolicitudNuevoActions.plazo("AÑO"),
-                SolicitudNuevoActions.nroplazo("9"),
+                SolicitudNuevoActions.nroplazo("5"),
                 SolicitudNuevoActions.opencalendar(),
                 SolicitudNuevoActions.nextmonthcalendar(),
-                SolicitudNuevoActions.okcalendar()
-                    /*SolicitudNuevoActions.calculartasa()
-                    SolicitudNuevoActions.guardaroperacion(),
-                    SolicitudNuevoActions.confirmaroperacion()*/
+                SolicitudNuevoActions.okcalendar(),
+                SolicitudNuevoActions.calculartasa(),
+                SolicitudNuevoActions.guardaroperacion(),
+                SolicitudNuevoActions.confirmaroperacion()
         );
 
     }

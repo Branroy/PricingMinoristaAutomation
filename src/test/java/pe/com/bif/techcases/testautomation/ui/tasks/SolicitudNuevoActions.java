@@ -1,5 +1,6 @@
 package pe.com.bif.techcases.testautomation.ui.tasks;
 
+import net.bytebuddy.implementation.InvokeDynamic;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -9,7 +10,16 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 import pe.com.bif.techcases.testautomation.ui.mapping.SolicitudNuevo;
 
+import javax.swing.text.html.HTMLEditorKit;
+import java.time.Duration;
+
 public class SolicitudNuevoActions {
+
+    public static Performable tipodocumento(String tipodocumento) {
+        return Task.where("{0} select tipo producto '" + tipodocumento + "'",
+                WaitUntil.the(SolicitudNuevo.TIPODOCUMENTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                Select.option(tipodocumento).from(SolicitudNuevo.TIPODOCUMENTO));
+    }
     public static Performable nrodocumento(String nrodocumento) {
         return Task.where("{0} enters nro documento '" + nrodocumento + "'",
                 Clear.field(SolicitudNuevo.NRODOCUMENTO),
@@ -97,6 +107,31 @@ public class SolicitudNuevoActions {
                 Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOPRECIOINMUEBLE),
                 Enter.theValue(montoprecioinmueble).into(SolicitudNuevo.MONTOPRECIOINMUEBLE));
     }
+    // PAGARE COMERCIAL, LEASING, COMEX
+    public static Performable amortizacion(String amotizacion) {
+        if ("SI".equalsIgnoreCase(amotizacion))
+            return Task.where("{0} select amortización SI",
+                    WaitUntil.the(SolicitudNuevo.AMORTIZACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.AMORTIZACION));
+        else{
+            return Task.where("{0} select amortizacion NO");
+        }
+    }
+    public static Performable tipodesembolso(String tipodesembolso,String modalidad) {
+        if ("SI".equalsIgnoreCase(tipodesembolso) && "LINEA".equalsIgnoreCase(modalidad)){
+            return Task.where("{0} select tipo desembolso SI",
+                    WaitUntil.the(SolicitudNuevo.TIPODESEMBOLSO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.TIPODESEMBOLSO));
+
+        }else if ("NO".equalsIgnoreCase(tipodesembolso) && "LINEA".equalsIgnoreCase(modalidad)){
+            return Task.where("{0} select tipo desembolso NO");
+
+        }else{
+            return Task.where("{0} select tipo desembolso no aplica");
+        }
+    }
+
+
     public static Performable nropagare(String nropagare,String modalidad) {
         if("REENGANCHE".equalsIgnoreCase(modalidad)){
             return Task.where("{0} select nro pagare '" + nropagare + "'",
@@ -187,6 +222,7 @@ public class SolicitudNuevoActions {
     }
     //DATOS DEL BIEN: VEHICULAR
     public static Performable concesionario(String concesionario) {
+
         return Task.where("{0} select concesionario '" + concesionario + "'",
                 WaitUntil.the(SolicitudNuevo.CONCESIONARIO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                 Select.option(concesionario).from(SolicitudNuevo.CONCESIONARIO));
@@ -199,6 +235,7 @@ public class SolicitudNuevoActions {
     }
 
     public static Performable modelo(String modelo) {
+
         return Task.where("{0} enters modelo '" + modelo + "'",
                 Clear.field(SolicitudNuevo.MODELO),
                 Enter.theValue(modelo).into(SolicitudNuevo.MODELO));
@@ -231,7 +268,7 @@ public class SolicitudNuevoActions {
     }
 
     public static Performable clasificacion(String clasificacion,String comision) {
-        if ("AMICAR".equalsIgnoreCase(clasificacion)){
+        if ("AMICAR".equalsIgnoreCase(comision)){
             return Task.where("{0} select comisión para '" + clasificacion + "'",
                     WaitUntil.the(SolicitudNuevo.CLASIFICACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                     Select.option(clasificacion).from(SolicitudNuevo.CLASIFICACION));
@@ -250,6 +287,10 @@ public class SolicitudNuevoActions {
                 Clear.field(SolicitudNuevo.MONTOOPERACION),
                 Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOOPERACION),
                 Enter.theValue(montooperacion).into(SolicitudNuevo.MONTOOPERACION));
+
+                /*Hit.the(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOOPERACION),
+                SendKeys.of(montooperacion).into(SolicitudNuevo.MONTOOPERACION));*/
+
     }
 
     public static Performable garantia(String garantia) {
@@ -283,7 +324,10 @@ public class SolicitudNuevoActions {
 
     public static Performable okcalendar() {
         return Task.where("{0} click on confirmar calendario",
-                Click.on(SolicitudNuevo.OKCALENDAR));
+                Click.on(SolicitudNuevo.OKCALENDAR),
+                Click.on(SolicitudNuevo.MONTOOPERACION),
+                Click.on(SolicitudNuevo.FONDOTASAPRODUCTO));
+
     }
 
     public static Performable calculartasa() {
@@ -298,7 +342,9 @@ public class SolicitudNuevoActions {
 
     public static Performable confirmaroperacion() {
         return Task.where("{0} click on confirmar operación",
-                Click.on(SolicitudNuevo.CONFIRMAROPERACION));
+                Click.on(SolicitudNuevo.CONFIRMAROPERACION),
+                WaitUntil.the(SolicitudNuevo.CHECKEXISTO, WebElementStateMatchers.isVisible()).forNoMoreThan(20l).seconds());
+
     }
 
     public static Performable tasaadicionallibre(String tasaadicionallibre) {

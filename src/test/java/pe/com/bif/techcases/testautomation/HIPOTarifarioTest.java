@@ -47,23 +47,23 @@ public class HIPOTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.relacionlaboral("MIXTA"),
                 SolicitudNuevoActions.ingresonetosinsustento("15000.00"),
                 SolicitudNuevoActions.ingresonetoscodeudor("2300"),
+                SolicitudNuevoActions.precioinmueble("USD"),
+                SolicitudNuevoActions.montoprecioinmueble("200000.00"),
+                SolicitudNuevoActions.importe("USD"),
+                SolicitudNuevoActions.montooperacion("100000.00"),
                 SolicitudNuevoActions.nrovivienda("SEGUNDA A MAS"),
                 SolicitudNuevoActions.tipobien("BIEN FUTURO"),
                 SolicitudNuevoActions.proyectobanco(proyectobanco,producto),
                 SolicitudNuevoActions.nombreproyecto("ALERIA - GRUPO DEGOL SAC"),
-                SolicitudNuevoActions.precioinmueble("USD"),
-                SolicitudNuevoActions.montoprecioinmueble("200200.00"),
-                SolicitudNuevoActions.importe("USD"),
-                SolicitudNuevoActions.montooperacion("60000.00"),
                 SolicitudNuevoActions.garantia("GARANTIA INMOBILIARIA"),
                 SolicitudNuevoActions.plazo("AÑO"),
                 SolicitudNuevoActions.nroplazo("12"),
                 SolicitudNuevoActions.opencalendar(),
                 SolicitudNuevoActions.nextmonthcalendar(),
-                SolicitudNuevoActions.okcalendar()
-                    /*SolicitudNuevoActions.calculartasa()
-                    SolicitudNuevoActions.guardaroperacion(),
-                    SolicitudNuevoActions.confirmaroperacion()*/
+                SolicitudNuevoActions.okcalendar(),
+                SolicitudNuevoActions.calculartasa(),
+                SolicitudNuevoActions.guardaroperacion(),
+                SolicitudNuevoActions.confirmaroperacion()
         );
 
     }

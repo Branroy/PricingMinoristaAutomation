@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pe.com.bif.techcases.testautomation.PJTarifarioTest
+-------------------------------------------------------------------------------
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.036 s - in pe.com.bif.techcases.testautomation.PJTarifarioTest
