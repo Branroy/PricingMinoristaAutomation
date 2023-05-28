@@ -1,6 +1,5 @@
 package pe.com.bif.techcases.testautomation.ui.tasks;
 
-import net.bytebuddy.implementation.InvokeDynamic;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -8,12 +7,12 @@ import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.ui.Select;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
+
 import pe.com.bif.techcases.testautomation.ui.mapping.SolicitudNuevo;
 
-import javax.swing.text.html.HTMLEditorKit;
-import java.time.Duration;
 
 public class SolicitudNuevoActions {
+
 
     public static Performable tipodocumento(String tipodocumento) {
         return Task.where("{0} select tipo producto '" + tipodocumento + "'",
@@ -288,9 +287,6 @@ public class SolicitudNuevoActions {
                 Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOOPERACION),
                 Enter.theValue(montooperacion).into(SolicitudNuevo.MONTOOPERACION));
 
-                /*Hit.the(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOOPERACION),
-                SendKeys.of(montooperacion).into(SolicitudNuevo.MONTOOPERACION));*/
-
     }
 
     public static Performable garantia(String garantia) {
@@ -331,8 +327,25 @@ public class SolicitudNuevoActions {
     }
 
     public static Performable calculartasa() {
-        return Task.where("{0} click on calcular tasa",
-                Click.on(SolicitudNuevo.CALCULARTASA));
+            return Task.where("{0} click on calcular tasa",
+                    Click.on(SolicitudNuevo.CALCULARTASA));
+    }
+
+    public static Performable validaperfilcomercial(String validaperfilcomercial) {
+
+        if(validaperfilcomercial.equalsIgnoreCase("SI")){
+            return Task.where("{0} Validar perfil comercial",
+                    Clear.field(SolicitudNuevo.MONTONIVELVENTAS),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTONIVELVENTAS),
+                    Enter.theValue("1000000.00").into(SolicitudNuevo.MONTONIVELVENTAS),
+                    Click.on(SolicitudNuevo.GUARDARNIVELVENTAS),
+                    Click.on(SolicitudNuevo.CONFIRMARPERFILCOMERCIAL),
+                    Click.on(SolicitudNuevo.OKPERFILCOMERCIAL));
+
+        }else{
+            return Task.where("{0} Validar perfil comercial no aplica");
+        }
+
     }
 
     public static Performable guardaroperacion() {

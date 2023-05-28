@@ -11,6 +11,8 @@ import pe.com.bif.techcases.testautomation.ui.tasks.LoginActions;
 import pe.com.bif.techcases.testautomation.ui.tasks.NavigateTo;
 import pe.com.bif.techcases.testautomation.ui.tasks.SolicitudNuevoActions;
 
+import java.beans.Visibility;
+
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="src/test/resources/testdata/HIPOTarifario.csv")
 public class HIPOTarifarioTest extends BaseConf {
@@ -54,6 +56,7 @@ public class HIPOTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.nrovivienda("SEGUNDA A MAS"),
                 SolicitudNuevoActions.tipobien("BIEN FUTURO"),
                 SolicitudNuevoActions.proyectobanco(proyectobanco,producto),
+
                 SolicitudNuevoActions.nombreproyecto("ALERIA - GRUPO DEGOL SAC"),
                 SolicitudNuevoActions.garantia("GARANTIA INMOBILIARIA"),
                 SolicitudNuevoActions.plazo("AÑO"),

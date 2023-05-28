@@ -22,6 +22,7 @@ public class PJTarifarioTest extends BaseConf {
     private String modalidad;
     private String amortizacion;
     private String tipodesembolso;
+    private String perfilcomercial;
 
 
     @Before
@@ -50,6 +51,7 @@ public class PJTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.plazo("AÑO"),
                 SolicitudNuevoActions.nroplazo("1"),
                 SolicitudNuevoActions.calculartasa(),
+                SolicitudNuevoActions.validaperfilcomercial(perfilcomercial),
                 SolicitudNuevoActions.guardaroperacion(),
                 SolicitudNuevoActions.confirmaroperacion()
         );

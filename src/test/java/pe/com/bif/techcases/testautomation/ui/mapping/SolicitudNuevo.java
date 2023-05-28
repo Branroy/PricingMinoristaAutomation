@@ -273,6 +273,16 @@ public class SolicitudNuevo {
 
     //4. TASAS SUGERIDAS
 
+
+    public static final Target MONTONIVELVENTAS = Target
+            .the("montonivelventas")
+            .located(By.xpath("//*[@id=\"txtMontoNivelVentas\"]"));
+
+    public static final Target GUARDARNIVELVENTAS = Target
+            .the("guardarnivelventas")
+            .located(By.xpath("//*[@id=\"mdlGuardar5\"]"));
+
+
     public static final Target CONFIRMAROPERACION = Target
             .the("confirmaroperacion")
             .located(By.xpath("/html/body/div[16]/div/div[3]/button[2]"));
@@ -288,6 +298,23 @@ public class SolicitudNuevo {
     public static final Target CHECKEXISTO = Target
             .the("checkexito")
             .located(By.xpath("//*[@id=\"swal2-content\"]"));
+
+    public static final Target REGISTRARPERFILCOMERCIAL = Target
+            .the("registrarperfilcomercial")
+            .located(By.xpath("//*[@id=\"lblModalTitulo5\"]"));
+
+    public static final Target CONFIRMARPERFILCOMERCIAL = Target
+            .the("confirmarperfilcomercial")
+            .located(By.xpath("/html/body/div[17]/div/div[3]/button[2]"));
+
+    public static final Target OKPERFILCOMERCIAL = Target
+            .the("okperfilcomercial")
+            .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
+
+
+
+
+
 
 
 

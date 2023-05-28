@@ -20,7 +20,7 @@ import java.util.List;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class BaseConf {
-    protected Actor actor;
+    public Actor actor;
     private EnvironmentVariables environmentVariables;
 
     @Managed
@@ -33,6 +33,7 @@ public class BaseConf {
 
         actor.can(BrowseTheWeb.with(browser));
         browser.manage().window().maximize();
+        //actor.asksFor(Visibility.of)
 
     }
 
