@@ -17,6 +17,7 @@ D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcas
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectPlazo.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectTasaAdicionalLibre.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillNroDocumento.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\bdconnections\PruebaConexion.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\mapping\Login.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectImporte.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectProductoComprar2.java
@@ -46,6 +47,8 @@ D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcas
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillTea2.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectProductoComprar3.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\PJFillEments\FlagTipoDesembolso.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\bdconnections\connectionSql.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\bdconnections\SQLManager.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\PLDCuentaSueldoMaestriaTarifarioTest.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectDivisaProducto2.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\LoginfillElements\FillPassword.java

@@ -29,6 +29,7 @@ public class SolicitudNuevoActions {
 
         if("NO".equalsIgnoreCase(escliente)){
             return Task.where("{0} enters nombre cliente CLIENTE TEST AUTOMATIZADO",
+                    WaitUntil.the(SolicitudNuevo.CONFIRMARALERTACLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                     Click.on(SolicitudNuevo.CONFIRMARALERTACLIENTE),
                     WaitUntil.the(SolicitudNuevo.NOMBRECLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
                     Clear.field(SolicitudNuevo.NOMBRECLIENTE),

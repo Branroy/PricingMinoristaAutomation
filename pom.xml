@@ -119,6 +119,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>10.2.1.jre8</version>
+        </dependency>
+
+
 
     </dependencies>
     <build>
@@ -133,13 +141,13 @@
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                         <include>**/*TestCase.java</include>
-                        <include>**/When*.java</include>
+                        <include>**/When*.java</include>-->
                         <include>**PLDLibreDisponibilidadTarifarioTest.java</include>
-                        <include>**PLDCuentaSueldoMaestriaTarifarioTest.java</include>
+                        <!--<include>**PLDCuentaSueldoMaestriaTarifarioTest.java</include>
                         <include>**PLDCompraDeudaTarifarioTest.java</include>-->
                         <!--<include>**HIPOTarifarioTest.java</include>
-                        <include>**VEHITarifarioTest.java</include>-->
-                        <include>**PJTarifarioTest.java</include>
+                        <include>**VEHITarifarioTest.java</include>
+                        <include>**PJTarifarioTest.java</include>-->
                     </includes>
                     <excludes>
                         <!--<exclude>**/Tests.java</exclude>-->
