@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pe.com.bif.techcases.testautomation.PLDLibreDisponibilidadTarifarioTest
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.815 s - in pe.com.bif.techcases.testautomation.PLDLibreDisponibilidadTarifarioTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 120.083 s - in pe.com.bif.techcases.testautomation.PLDLibreDisponibilidadTarifarioTest
