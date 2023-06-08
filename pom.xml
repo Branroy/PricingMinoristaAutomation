@@ -125,7 +125,12 @@
             <artifactId>mssql-jdbc</artifactId>
             <version>10.2.1.jre8</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.0.0</version>
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>
@@ -144,9 +149,9 @@
                         <include>**/When*.java</include>-->
                         <include>**PLDLibreDisponibilidadTarifarioTest.java</include>
                         <!--<include>**PLDCuentaSueldoMaestriaTarifarioTest.java</include>
-                        <include>**PLDCompraDeudaTarifarioTest.java</include>-->
-                        <!--<include>**HIPOTarifarioTest.java</include>
-                        <include>**VEHITarifarioTest.java</include>
+                        <include>**PLDCompraDeudaTarifarioTest.java</include>
+                        <include>**HIPOTarifarioTest.java</include>-->
+                        <!--<include>**VEHITarifarioTest.java</include>
                         <include>**PJTarifarioTest.java</include>-->
                     </includes>
                     <excludes>

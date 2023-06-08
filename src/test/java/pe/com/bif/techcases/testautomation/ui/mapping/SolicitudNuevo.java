@@ -249,6 +249,101 @@ public class SolicitudNuevo {
             .the("guardaroperacion")
             .located(By.xpath("//*[@id=\"btnGuardarOperacion\"]"));
 
+
+    //6. PRODUCTOS ADICIONALES
+    public static final Target SEGUROS = Target
+            .the("seguros")
+            .located(By.xpath("//*[@id=\"cboSeguros\"]"));
+
+    //7. SOLICITUD DE TASA PREFERENCIAL
+    public static final Target COMPITEENTIDAD = Target
+            .the("compiteentidad")
+            .located(By.xpath("//*[@id=\"chkPregunta1_1\"]"));
+
+    public static final Target BANCAOFERTANTE = Target
+            .the("bancaofertante")
+            .located(By.xpath("//*[@id=\"cboSTPBancoOfertante\"]"));
+
+    public static final Target PRODUCTOOFERT = Target
+            .the("productoofert")
+            .located(By.xpath("//*[@id=\"cboSTPProductoOfertante\"]"));
+
+    public static final Target MONEDAOFERTADA = Target
+            .the("monedaofertada")
+            .located(By.xpath("//*[@id=\"cboSTPDivisa\"]"));
+
+    public static final Target TASAOFERTANTE = Target
+            .the("tasaofertante")
+            .located(By.xpath("//*[@id=\"txtSTPTEAOfertante\"]"));
+
+    public static final Target MONTOOFERT = Target
+            .the("montoofert")
+            .located(By.xpath("//*[@id=\"txtSTPMontoOfertante\"]"));
+
+    public static final Target PLAZOOFERT = Target
+            .the("plazoofert")
+            .located(By.xpath("//*[@id=\"txtSTPlazoOfertante\"]"));
+
+    public static final Target ADJUNTARCRONOGRAMA = Target
+            .the("adjuntarcronograma")
+            .located(By.xpath("//*[@id=\"btnVerAdjuntos3\"]"));
+
+    public static final Target AGREGARCRONOGRAMA = Target
+            .the("agregarcronograma")
+            .located(By.xpath("//*[@id=\"btnAgregar\"]"));
+
+    public static final Target CONFIRMARCRONOGRAMA = Target
+            .the("confirmarcronograma")
+            .located(By.xpath("/html/body/div[17]/div/div[3]/button[1]"));
+
+    public static final Target ACEPTARCRONOGRAMA = Target
+            .the("aceptarcronograma")
+            .located(By.xpath("/html/body/div[3]/div/div/div[2]/div/div/button[3]"));
+
+
+
+
+
+    public static final Target COMPROMISO = Target
+            .the("compromiso")
+            .located(By.xpath("//*[@id=\"chkPregunta2_1\"]"));
+
+    public static final Target REGISTRARCOMPROMISO = Target
+            .the("registrarcompromiso")
+            .located(By.xpath("//*[@id=\"btnCompromisos3\"]"));
+
+    public static final Target COMBOCOMPROMISO = Target
+            .the("registrarcompromiso")
+            .located(By.xpath("//*[@id=\"cboCompromiso\"]"));
+
+    public static final Target PLAZOMAXDIAS = Target
+            .the("plazomaxdias")
+            .located(By.xpath("//*[@id=\"txtPlazoMaximo\"]"));
+
+    public static final Target VALORCOMPROMISO = Target
+            .the("valorcompromiso")
+            .located(By.xpath("//*[@id=\"cboValor\"]"));
+
+    public static final Target MONTOVALOR = Target
+            .the("montovalor")
+            .located(By.xpath("//*[@id=\"txtValor\"]"));
+
+    public static final Target AGREGARCOMPROMISO = Target
+            .the("agregarcompromiso")
+            .located(By.xpath("//*[@id=\"btnAgregarCompromiso\"]"));
+
+    public static final Target CONFIRMARCOMPROMISO = Target
+            .the("confirmarcompromiso")
+            .located(By.xpath("/html/body/div[17]/div/div[3]/button[2]"));
+
+
+
+
+
+
+
+
+
     //VALIDACIONES, LOADERS Y CONFIRMACIONES -----------------------------------------------------------------
     //1. DATOS DEL CLIENTE
     public static final Target LOADER = Target
@@ -272,8 +367,6 @@ public class SolicitudNuevo {
 
 
     //4. TASAS SUGERIDAS
-
-
     public static final Target MONTONIVELVENTAS = Target
             .the("montonivelventas")
             .located(By.xpath("//*[@id=\"txtMontoNivelVentas\"]"));
@@ -281,7 +374,6 @@ public class SolicitudNuevo {
     public static final Target GUARDARNIVELVENTAS = Target
             .the("guardarnivelventas")
             .located(By.xpath("//*[@id=\"mdlGuardar5\"]"));
-
 
     public static final Target CONFIRMAROPERACION = Target
             .the("confirmaroperacion")
@@ -312,6 +404,10 @@ public class SolicitudNuevo {
             .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
 
 
+    //VALIDACION DE COTIZACION
+    public static final Target IDCOTIZACION = Target
+            .the("idcotizacion")
+            .located(By.xpath("/html/body/section/div/div[1]/div/div[2]/label[1]"));
 
 
 

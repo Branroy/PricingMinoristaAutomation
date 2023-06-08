@@ -1,0 +1,4 @@
+# Created at 2023-06-08T17:28:05.201
+Boot Manifest-JAR contains absolute paths in classpath 'D:\WorkSpaceIntellij\PricingMinoristaAutomation\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

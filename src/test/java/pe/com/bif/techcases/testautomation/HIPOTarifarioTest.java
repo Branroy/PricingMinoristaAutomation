@@ -56,7 +56,6 @@ public class HIPOTarifarioTest extends BaseConf {
                 SolicitudNuevoActions.nrovivienda("SEGUNDA A MAS"),
                 SolicitudNuevoActions.tipobien("BIEN FUTURO"),
                 SolicitudNuevoActions.proyectobanco(proyectobanco,producto),
-
                 SolicitudNuevoActions.nombreproyecto("ALERIA - GRUPO DEGOL SAC"),
                 SolicitudNuevoActions.garantia("GARANTIA INMOBILIARIA"),
                 SolicitudNuevoActions.plazo("AÑO"),

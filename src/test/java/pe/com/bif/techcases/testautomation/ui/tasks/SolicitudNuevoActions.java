@@ -10,13 +10,21 @@ import org.openqa.selenium.Keys;
 
 import pe.com.bif.techcases.testautomation.ui.mapping.SolicitudNuevo;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 
 public class SolicitudNuevoActions {
 
 
     public static Performable tipodocumento(String tipodocumento) {
         return Task.where("{0} select tipo producto '" + tipodocumento + "'",
-                WaitUntil.the(SolicitudNuevo.TIPODOCUMENTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.TIPODOCUMENTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(tipodocumento).from(SolicitudNuevo.TIPODOCUMENTO));
     }
     public static Performable nrodocumento(String nrodocumento) {
@@ -29,9 +37,9 @@ public class SolicitudNuevoActions {
 
         if("NO".equalsIgnoreCase(escliente)){
             return Task.where("{0} enters nombre cliente CLIENTE TEST AUTOMATIZADO",
-                    WaitUntil.the(SolicitudNuevo.CONFIRMARALERTACLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.CONFIRMARALERTACLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Click.on(SolicitudNuevo.CONFIRMARALERTACLIENTE),
-                    WaitUntil.the(SolicitudNuevo.NOMBRECLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.NOMBRECLIENTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Clear.field(SolicitudNuevo.NOMBRECLIENTE),
                     Enter.theValue("CLIENTE TEST AUTOMATIZADO").into(SolicitudNuevo.NOMBRECLIENTE));
 
@@ -48,40 +56,40 @@ public class SolicitudNuevoActions {
 
     public static Performable macroproducto(String macroproducto) {
         return Task.where("{0} select macroproducto '" + macroproducto + "'",
-                WaitUntil.the(SolicitudNuevo.MACROPRODUCTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.MACROPRODUCTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(macroproducto).from(SolicitudNuevo.MACROPRODUCTO));
     }
 
     public static Performable producto(String producto) {
         return Task.where("{0} select producto '" + producto + "'",
-                WaitUntil.the(SolicitudNuevo.PRODUCTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.PRODUCTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(producto).from(SolicitudNuevo.PRODUCTO));
     }
 
     public static Performable modalidad(String modalidad) {
         return Task.where("{0} select modalidad '" + modalidad + "'",
-                WaitUntil.the(SolicitudNuevo.MODALIDAD, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.MODALIDAD, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(modalidad).from(SolicitudNuevo.MODALIDAD));
     }
 
     // DATOS DEL BIEN: Hipotecario
     public static Performable nrovivienda(String nrovivienda) {
         return Task.where("{0} select nro vivienda '" + nrovivienda + "'",
-                WaitUntil.the(SolicitudNuevo.NROVIVIENDA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.NROVIVIENDA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(nrovivienda).from(SolicitudNuevo.NROVIVIENDA));
     }
 
 
     public static Performable tipobien(String tipobien) {
         return Task.where("{0} select tipo de bien '" + tipobien + "'",
-                WaitUntil.the(SolicitudNuevo.TIPOBIEN, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.TIPOBIEN, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(tipobien).from(SolicitudNuevo.TIPOBIEN));
     }
 
     public static Performable planahorro(String planahorro) {
         if ("SI".equalsIgnoreCase(planahorro))
         return Task.where("{0} select planahorro SI",
-                WaitUntil.the(SolicitudNuevo.PLANAHORRO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.PLANAHORRO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 JavaScriptClick.on(SolicitudNuevo.PLANAHORRO));
         else{
             return Task.where("{0} select planahorro NO");
@@ -90,13 +98,13 @@ public class SolicitudNuevoActions {
 
     public static Performable nombreproyecto(String nombreproyecto) {
         return Task.where("{0} select nombre del proyecto '" + nombreproyecto + "'",
-                WaitUntil.the(SolicitudNuevo.NOMBREPROYECTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.NOMBREPROYECTO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(nombreproyecto).from(SolicitudNuevo.NOMBREPROYECTO));
     }
 
     public static Performable precioinmueble(String precioinmueble) {
         return Task.where("{0} select moneda venta del inmueble '" + precioinmueble + "'",
-                WaitUntil.the(SolicitudNuevo.PRECIOINMUEBLE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.PRECIOINMUEBLE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(precioinmueble).from(SolicitudNuevo.PRECIOINMUEBLE));
     }
 
@@ -111,7 +119,7 @@ public class SolicitudNuevoActions {
     public static Performable amortizacion(String amotizacion) {
         if ("SI".equalsIgnoreCase(amotizacion))
             return Task.where("{0} select amortización SI",
-                    WaitUntil.the(SolicitudNuevo.AMORTIZACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.AMORTIZACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     JavaScriptClick.on(SolicitudNuevo.AMORTIZACION));
         else{
             return Task.where("{0} select amortizacion NO");
@@ -120,7 +128,7 @@ public class SolicitudNuevoActions {
     public static Performable tipodesembolso(String tipodesembolso,String modalidad) {
         if ("SI".equalsIgnoreCase(tipodesembolso) && "LINEA".equalsIgnoreCase(modalidad)){
             return Task.where("{0} select tipo desembolso SI",
-                    WaitUntil.the(SolicitudNuevo.TIPODESEMBOLSO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.TIPODESEMBOLSO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     JavaScriptClick.on(SolicitudNuevo.TIPODESEMBOLSO));
 
         }else if ("NO".equalsIgnoreCase(tipodesembolso) && "LINEA".equalsIgnoreCase(modalidad)){
@@ -144,18 +152,18 @@ public class SolicitudNuevoActions {
 
     public static Performable tipoingreso(String tipoingreso) {
         return Task.where("{0} select tipo de ingreso '" + tipoingreso + "'",
-                WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(tipoingreso).from(SolicitudNuevo.TIPOINGRESO));
     }
 
     public static Performable tipoingresocodeudor(String codeudor) {
         if ("SI".equalsIgnoreCase(codeudor)){
         return Task.where("{0} select tipo de ingreso codeudor",
-                WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option("INGRESO CODEUDOR").from(SolicitudNuevo.TIPOINGRESO));
         }else {
             return Task.where("{0} select tipo de ingreso individual",
-                    WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.TIPOINGRESO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option("INGRESO INDIVIDUAL").from(SolicitudNuevo.TIPOINGRESO));
         }
 
@@ -164,7 +172,7 @@ public class SolicitudNuevoActions {
 
     public static Performable relacionlaboral(String relacionlaboral) {
         return Task.where("{0} select tipo relacion laboral '" + relacionlaboral + "'",
-                WaitUntil.the(SolicitudNuevo.RELACIONLABORAL, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.RELACIONLABORAL, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(relacionlaboral).from(SolicitudNuevo.RELACIONLABORAL));
     }
 
@@ -214,7 +222,7 @@ public class SolicitudNuevoActions {
             return Task.where("{0} select proyectobanco SI");
         else if("SI".equalsIgnoreCase(proyectobanco)){
             return Task.where("{0} select proyectobanco SI",
-                    WaitUntil.the(SolicitudNuevo.PROYECTOBANCO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.PROYECTOBANCO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     JavaScriptClick.on(SolicitudNuevo.PROYECTOBANCO));
         }else{
             return Task.where("{0} select proyectobanco NO");
@@ -224,13 +232,13 @@ public class SolicitudNuevoActions {
     public static Performable concesionario(String concesionario) {
 
         return Task.where("{0} select concesionario '" + concesionario + "'",
-                WaitUntil.the(SolicitudNuevo.CONCESIONARIO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.CONCESIONARIO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(concesionario).from(SolicitudNuevo.CONCESIONARIO));
     }
 
     public static Performable marca(String marca) {
         return Task.where("{0} select marca '" + marca + "'",
-                WaitUntil.the(SolicitudNuevo.MARCA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.MARCA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(marca).from(SolicitudNuevo.MARCA));
     }
 
@@ -243,7 +251,7 @@ public class SolicitudNuevoActions {
 
     public static Performable preciovehiculo(String preciovehiculo) {
         return Task.where("{0} select moenda venta del vehiculo '" + preciovehiculo + "'",
-                WaitUntil.the(SolicitudNuevo.PRECIOVEHICULO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.PRECIOVEHICULO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(preciovehiculo).from(SolicitudNuevo.PRECIOVEHICULO));
     }
 
@@ -256,7 +264,7 @@ public class SolicitudNuevoActions {
 
     public static Performable comision(String comision) {
         return Task.where("{0} select comisión para '" + comision + "'",
-                WaitUntil.the(SolicitudNuevo.COMISION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.COMISION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(comision).from(SolicitudNuevo.COMISION));
     }
 
@@ -270,7 +278,7 @@ public class SolicitudNuevoActions {
     public static Performable clasificacion(String clasificacion,String comision) {
         if ("AMICAR".equalsIgnoreCase(comision)){
             return Task.where("{0} select comisión para '" + clasificacion + "'",
-                    WaitUntil.the(SolicitudNuevo.CLASIFICACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.CLASIFICACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(clasificacion).from(SolicitudNuevo.CLASIFICACION));
         }
         return Task.where("{0} clasificación no aplica");
@@ -278,7 +286,7 @@ public class SolicitudNuevoActions {
 
     public static Performable importe(String importe) {
         return Task.where("{0} select importe '" + importe + "'",
-        WaitUntil.the(SolicitudNuevo.IMPORTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+        WaitUntil.the(SolicitudNuevo.IMPORTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(importe).from(SolicitudNuevo.IMPORTE));
     }
 
@@ -292,13 +300,13 @@ public class SolicitudNuevoActions {
 
     public static Performable garantia(String garantia) {
         return Task.where("{0} select garantia '" + garantia + "'",
-                WaitUntil.the(SolicitudNuevo.IMPORTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.IMPORTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(garantia).from(SolicitudNuevo.GARANTIA));
     }
 
     public static Performable plazo(String plazo) {
         return Task.where("{0} select plazo '" + plazo + "'",
-                WaitUntil.the(SolicitudNuevo.PLAZO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.PLAZO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(plazo).from(SolicitudNuevo.PLAZO));
     }
 
@@ -357,7 +365,7 @@ public class SolicitudNuevoActions {
     public static Performable confirmaroperacion() {
         return Task.where("{0} click on confirmar operación",
                 Click.on(SolicitudNuevo.CONFIRMAROPERACION),
-                WaitUntil.the(SolicitudNuevo.CHECKEXISTO, WebElementStateMatchers.isVisible()).forNoMoreThan(20l).seconds());
+                WaitUntil.the(SolicitudNuevo.CHECKEXISTO, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds());
 
     }
 
@@ -367,10 +375,6 @@ public class SolicitudNuevoActions {
         } else if ("2".equalsIgnoreCase(tasaadicionallibre)) {
             return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
                     JavaScriptClick.on(SolicitudNuevo.TASAADICIONALLIBRE));
-        /*}else if ("3".equalsIgnoreCase(tasaadicionallibre)){
-            return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
-                    Click.on(SolicitudNuevo.TASAADICIONALLIBRE),
-                    Click.on(SolicitudNuevo.TASAADICIONALLIBRE));*/
         }else {
             return Task.where("{0} select cantidad de datos adicionales '" + tasaadicionallibre + "'",
                     JavaScriptClick.on(SolicitudNuevo.TASAADICIONALLIBRE),
@@ -384,11 +388,11 @@ public class SolicitudNuevoActions {
                 || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select entidad1 '" + entidad1 + "'",
-                WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Select.option(entidad1).from(SolicitudNuevo.ENTIDAD1));
         }else{
             return Task.where("{0} select entidad1 '" + entidad1 + "'",
-                    WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.ENTIDAD1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(entidad1).from(SolicitudNuevo.ENTIDAD1));
         }
 
@@ -398,7 +402,7 @@ public class SolicitudNuevoActions {
             if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
                 return Task.where("{0} select entidad2 '" + entidad2 + "'",
-                        WaitUntil.the(SolicitudNuevo.ENTIDAD2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                        WaitUntil.the(SolicitudNuevo.ENTIDAD2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                         Select.option(entidad2).from(SolicitudNuevo.ENTIDAD2));
             }else{
                 return Task.where("{0} no aplica entidad2");
@@ -409,7 +413,7 @@ public class SolicitudNuevoActions {
         if ("3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select entidad3 '" + entidad3 + "'",
-                    WaitUntil.the(SolicitudNuevo.ENTIDAD3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.ENTIDAD3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(entidad3).from(SolicitudNuevo.ENTIDAD3));
         }else{
             return Task.where("{0} no aplica entidad2");
@@ -421,11 +425,11 @@ public class SolicitudNuevoActions {
                 || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select productocomprar1 '" + productocomprar1 + "'",
-                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(productocomprar1).from(SolicitudNuevo.PRODUCTOCOMPRAR1));
         }else{
             return Task.where("{0} select productocomprar1 '" + productocomprar1 + "'",
-                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(productocomprar1).from(SolicitudNuevo.PRODUCTOCOMPRAR1));
         }
 
@@ -435,7 +439,7 @@ public class SolicitudNuevoActions {
         if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select productocomprar2 '" + productocomprar2 + "'",
-                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(productocomprar2).from(SolicitudNuevo.PRODUCTOCOMPRAR2));
         }else{
             return Task.where("{0} no aplica productocomprar2");
@@ -446,7 +450,7 @@ public class SolicitudNuevoActions {
         if ("3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select productocomprar3 '" + productocomprar3 + "'",
-                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOCOMPRAR3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(productocomprar3).from(SolicitudNuevo.PRODUCTOCOMPRAR3));
         }else{
             return Task.where("{0} no aplica productocomprar3");
@@ -458,11 +462,11 @@ public class SolicitudNuevoActions {
                 || "2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select divisaproducto1 '" + divisaproducto1 + "'",
-                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(divisaproducto1).from(SolicitudNuevo.DIVISAPRODUCTO1));
         }else{
             return Task.where("{0} select divisaproducto1 '" + divisaproducto1 + "'",
-                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO1, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(divisaproducto1).from(SolicitudNuevo.DIVISAPRODUCTO1));
         }
 
@@ -472,7 +476,7 @@ public class SolicitudNuevoActions {
         if ("2".equalsIgnoreCase(tasaadicionallibre) || "3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select divisaproducto2 '" + divisaproducto2 + "'",
-                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO2, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(divisaproducto2).from(SolicitudNuevo.DIVISAPRODUCTO2));
         }else{
             return Task.where("{0} no aplica divisaproducto2");
@@ -485,7 +489,7 @@ public class SolicitudNuevoActions {
         if ("3".equalsIgnoreCase(tasaadicionallibre)){
 
             return Task.where("{0} select divisaproducto3 '" + divisaproducto3 + "'",
-                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20l).seconds(),
+                    WaitUntil.the(SolicitudNuevo.DIVISAPRODUCTO3, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(divisaproducto3).from(SolicitudNuevo.DIVISAPRODUCTO3));
         }else{
             return Task.where("{0} no aplica divisaproducto3");
@@ -607,6 +611,132 @@ public class SolicitudNuevoActions {
                     Enter.theValue(tea3).into(SolicitudNuevo.TEA3));
         }else{
             return Task.where("{0} no aplica tea3");
+        }
+    }
+
+    // 6. PRODUCTOS ADICIONALES
+
+    public static Performable seguro(String seguro,String descripcion) {
+        if ("SI".equalsIgnoreCase(seguro)){
+
+            return Task.where("{0} select seguro '" + descripcion + "'",
+                    WaitUntil.the(SolicitudNuevo.SEGUROS, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(descripcion).from(SolicitudNuevo.SEGUROS));
+        }else{
+            return Task.where("{0} no aplica seguro");
+        }
+    }
+
+    // 7. SOLICITUD DE TASA PREFERENCIAL
+
+    public static Performable compiteentidad(String compite,String bancoof,String monedaof){
+        if ("SI".equalsIgnoreCase(compite)){
+            double min1 = Math.ceil(1);
+            double max1 = Math.floor(99);
+            double r1 = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+            String tasaof = String.valueOf(r1);
+
+            double min2 = Math.ceil(100);
+            double max2 = Math.floor(1000000);
+            double r2 = Math.floor(Math.random() * (max2 - min2 + 1) + min2);
+            String montoof = String.valueOf(r2);
+
+            double min3 = Math.ceil(1);
+            double max3 = Math.floor(999);
+            double r3 = Math.floor(Math.random() * (max3 - min3 + 1) + min3);
+            String plazoof = String.valueOf(r3);
+
+            List<String> listproductoof = new ArrayList<>(Arrays.asList("LIBRE DISPONIBILIDAD","COMPRA DEUDA","CONVENIO","CREDITO HIPOTECARIO","PRESTAMO VEHICULAR"));
+            Random random = new Random();
+            int index = random.nextInt(listproductoof.size());
+            String productoof = listproductoof.get(index);
+
+            String pathFile = "D:\\WorkSpaceIntellij\\PricingMinoristaAutomation\\src\\test\\resources\\archivos\\Logo.jpg";
+            //Robot robot = new Robot();
+
+            /*StringSelection stringSelection = new StringSelection(pathFile);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(StringSelection,null);*/
+
+            return Task.where("{0} Banco ofertante: '" + bancoof + " ,Producto ofertante: '" + productoof
+                            + " ,Moneda ofertante: '" + monedaof + " ,Tasa ofertante(%): '" + tasaof
+                            + " ,Monto ofertante: '" + montoof + " ,Plazo ofertante(mes): '" + plazoof + "'",
+                    JavaScriptClick.on(SolicitudNuevo.COMPITEENTIDAD),
+                    WaitUntil.the(SolicitudNuevo.BANCAOFERTANTE, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(bancoof).from(SolicitudNuevo.BANCAOFERTANTE),
+                    WaitUntil.the(SolicitudNuevo.PRODUCTOOFERT, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(productoof).from(SolicitudNuevo.PRODUCTOOFERT),
+                    WaitUntil.the(SolicitudNuevo.MONEDAOFERTADA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(monedaof).from(SolicitudNuevo.MONEDAOFERTADA),
+                    Clear.field(SolicitudNuevo.TASAOFERTANTE),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.TASAOFERTANTE),
+                    Enter.theValue(tasaof).into(SolicitudNuevo.TASAOFERTANTE),
+                    Clear.field(SolicitudNuevo.MONTOOFERT),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOOFERT),
+                    Enter.theValue(montoof).into(SolicitudNuevo.MONTOOFERT),
+                    Clear.field(SolicitudNuevo.PLAZOOFERT),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.PLAZOOFERT),
+                    Enter.theValue(plazoof).into(SolicitudNuevo.PLAZOOFERT),
+
+                    JavaScriptClick.on(SolicitudNuevo.ADJUNTARCRONOGRAMA),
+                    JavaScriptClick.on(SolicitudNuevo.AGREGARCRONOGRAMA));
+
+
+
+
+        }else{
+            return Task.where("{0} no aplica Compite con otra entiendad");
+        }
+    }
+
+    public static Performable aceptacompiteentidad(String compite){
+        if ("SI".equalsIgnoreCase(compite)){
+            return Task.where("{0} confirmar Archivo Cronograma : ",
+                    JavaScriptClick.on(SolicitudNuevo.CONFIRMARCRONOGRAMA),
+                    JavaScriptClick.on(SolicitudNuevo.ACEPTARCRONOGRAMA));
+        }else{
+            return Task.where("{0} no aplica Archivo Cronograma");
+        }
+    }
+
+    public static Performable compromiso(String compromiso) {
+        if ("SI".equalsIgnoreCase(compromiso)){
+            double min1 = Math.ceil(30);
+            double max1 = Math.floor(180);
+            double r1 = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+            String plazomaxdias = String.valueOf(r1);
+
+            double min2 = Math.ceil(100);
+            double max2 = Math.floor(1000000);
+            double r2 = Math.floor(Math.random() * (max2 - min2 + 1) + min2);
+            String montovalor = String.valueOf(r2);
+
+            List<String> listcombocompromiso = new ArrayList<>(Arrays.asList("Pago de Haberes","CTS","Tarjeta de Crédito","Depósito a Plazos"));
+            List<String> listvalorcompromiso = new ArrayList<>(Arrays.asList("USD","PEN"));
+            Random random = new Random();
+            int index = random.nextInt(listcombocompromiso.size());
+            String combocompromiso = listcombocompromiso.get(index);
+
+            int index2 = random.nextInt(listvalorcompromiso.size());;
+            String valorcompromiso = listvalorcompromiso.get(index2);
+
+            return Task.where("{0} Compromiso: '" + combocompromiso + " ,Plazo Máx. (Días): '" + plazomaxdias
+                            + " ,Valor: '" + valorcompromiso + " ,Monto: '" + montovalor+ "'",
+                    JavaScriptClick.on(SolicitudNuevo.COMPROMISO),
+                    JavaScriptClick.on(SolicitudNuevo.REGISTRARCOMPROMISO),
+                    WaitUntil.the(SolicitudNuevo.COMBOCOMPROMISO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(combocompromiso).from(SolicitudNuevo.COMBOCOMPROMISO),
+                    Clear.field(SolicitudNuevo.PLAZOMAXDIAS),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.PLAZOMAXDIAS),
+                    Enter.theValue(plazomaxdias).into(SolicitudNuevo.PLAZOMAXDIAS),
+                    WaitUntil.the(SolicitudNuevo.VALORCOMPROMISO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(valorcompromiso).from(SolicitudNuevo.VALORCOMPROMISO),
+                    Clear.field(SolicitudNuevo.MONTOVALOR),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.MONTOVALOR),
+                    Enter.theValue(montovalor).into(SolicitudNuevo.MONTOVALOR),
+                    JavaScriptClick.on(SolicitudNuevo.AGREGARCOMPROMISO),
+                    JavaScriptClick.on(SolicitudNuevo.CONFIRMARCOMPROMISO));
+        }else{
+            return Task.where("{0} no aplica Compromisos");
         }
     }
 
