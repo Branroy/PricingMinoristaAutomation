@@ -249,6 +249,10 @@ public class SolicitudNuevo {
             .the("guardaroperacion")
             .located(By.xpath("//*[@id=\"btnGuardarOperacion\"]"));
 
+    public static final Target ACEPTARGUARDAROPERACION = Target
+            .the("aceptarguardaroperacion")
+            .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
+
 
     //6. PRODUCTOS ADICIONALES
     public static final Target SEGUROS = Target
@@ -336,11 +340,22 @@ public class SolicitudNuevo {
             .the("confirmarcompromiso")
             .located(By.xpath("/html/body/div[17]/div/div[3]/button[2]"));
 
+    //Modificación de Codiciones
+    public static final Target IMPORTEFINAL = Target
+            .the("importefinal")
+            .located(By.xpath("//*[@id=\"txtImporteFinal\"]"));
 
+    public static final Target MODIFICARCONDICIONES = Target
+            .the("modificarcondiciones")
+            .located(By.xpath("//*[@id=\"btnActualizarCondiciones\"]"));
 
+    public static final Target SIMODIFICARCONDICIONES = Target
+            .the("simodificarcondiciones")
+            .located(By.xpath("/html/body/div[16]/div/div[3]/button[2]"));
 
-
-
+    public static final Target ACEPTARMODIFICARCONDICIONES = Target
+            .the("aceptarmodificarcondiciones")
+            .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
 
 
 
@@ -405,13 +420,48 @@ public class SolicitudNuevo {
 
 
     //VALIDACION DE COTIZACION
+
+    public static final Target MSGOPERACIONEXISTO = Target
+            .the("mgsoperacionexisto")
+            .located(By.xpath("/html/body/div[16]/div/div[2]/div[1]"));
+
+
     public static final Target IDCOTIZACION = Target
-            .the("idcotizacion")
+            .the("/html/body/section/div/div[1]/div/div[2]/label[1]")
             .located(By.xpath("/html/body/section/div/div[1]/div/div[2]/label[1]"));
 
 
+    public static final Target NAME = Target
+            .the("/html/body/section/div[1]/div[2]/div/div[1]/div/div/div/div/div[6]/div/input")
+            .located(By.xpath("/html/body/section/div[1]/div[2]/div/div[1]/div/div/div/div/div[6]/div/input"));
 
 
+
+    //GENERAR FICHA
+
+    public static final Target GENERARFICHA = Target
+            .the("generarficha")
+            .located(By.xpath("//*[@id=\"btnGenerarFicha\"]"));
+
+    public static final Target ACEPTARGENERARFICHA = Target
+            .the("aceptargenerarficha")
+            .located(By.xpath("/html/body/div[16]/div/div[3]/button[1]"));
+
+    public static final Target ADJUNTARSUSTENTO = Target
+            .the("adjuntarsustento")
+            .located(By.xpath("//*[@id=\"btnAdjutarSustento\"]"));
+
+    public static final Target AGREGARSUSTENTO = Target
+            .the("agregarsustento")
+            .located(By.xpath("//*[@id=\"btnCerrar\"]"));
+
+    public static final Target CONFIRMARSUSTENTO = Target
+            .the("confirmarsustento")
+            .located(By.xpath("/html/body/div[17]/div/div[3]/button[1]"));
+
+    public static final Target ACEPTARSUSTENTO = Target
+            .the("aceptarsustento")
+            .located(By.xpath("//*[@id=\"btnAprobar\"]"));
 
 
 

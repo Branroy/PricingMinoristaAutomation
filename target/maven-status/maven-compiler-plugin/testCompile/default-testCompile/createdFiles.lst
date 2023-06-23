@@ -5,6 +5,7 @@ pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\Select
 pe\com\bif\techcases\testautomation\bdconnections\PruebaConexion.class
 pe\com\bif\techcases\testautomation\ui\tasks\LoginfillElements\FillUsuario.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillNroPlazo.class
+pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoQuestions\ValidaGuardarOperacion.class
 pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillImporteComprar1.class
 pe\com\bif\techcases\testautomation\ui\tasks\LoginActions.class
 pe\com\bif\techcases\testautomation\bdconnections\SQLManager.class
@@ -14,10 +15,13 @@ pe\com\bif\techcases\testautomation\ui\tasks\PJFillEments\FlagAmortizacion.class
 pe\com\bif\techcases\testautomation\ui\tasks\SegurosFillElements\SelectSeguro.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillIngresoNetoCodeudor.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectProducto.class
+pe\com\bif\techcases\testautomation\ui\tasks\UploadFiles\UploadFiles.class
 pe\com\bif\techcases\testautomation\VEHITarifarioTest.class
 pe\com\bif\techcases\testautomation\ui\tasks\HipotecarioFillElements\FlagProyectoBanco.class
 pe\com\bif\techcases\testautomation\bdconnections\connectionSql.class
 pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\FillMontoOfert.class
+pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoQuestions\ValidaIdCotizacion.class
+pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoValidations.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectMacroProducto.class
 pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillTea3.class
 pe\com\bif\techcases\testautomation\ui\mapping\BandejaCotizacionesFDN.class
@@ -59,6 +63,7 @@ pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillIngr
 pe\com\bif\techcases\testautomation\ui\tasks\HipotecarioFillElements\SelectPrecioInmueble.class
 pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillTea1.class
 pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\FillTasaOfertante.class
+pe\com\bif\techcases\testautomation\ui\tasks\GenerarFicha\GenerarFicha.class
 pe\com\bif\techcases\testautomation\ui\tasks\VehicularFillElements\FillMontoPrecioVehiculo.class
 pe\com\bif\techcases\testautomation\PLDLibreDisponibilidadTarifarioTest.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectPlazo.class
@@ -74,9 +79,9 @@ pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillMont
 pe\com\bif\techcases\testautomation\ui\tasks\VehicularFillElements\SelectMarca.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectGarantia.class
 pe\com\bif\techcases\testautomation\ui\tasks\HipotecarioFillElements\SelectNombreProyecto.class
+pe\com\bif\techcases\testautomation\ui\get\SolicitudNuevoGets.class
 pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectProductoComprar1.class
 pe\com\bif\techcases\testautomation\HIPOTarifarioTest.class
-pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\UploadFileCronograma.class
 pe\com\bif\techcases\testautomation\ui\tasks\NavigateTo.class
 pe\com\bif\techcases\testautomation\ui\mapping\SolicitudNuevo.class
 pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectImporte.class

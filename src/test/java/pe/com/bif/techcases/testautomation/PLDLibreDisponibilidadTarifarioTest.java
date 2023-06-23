@@ -8,8 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pe.com.bif.techcases.testautomation.ui.actors.BaseConf;
+import pe.com.bif.techcases.testautomation.ui.get.SolicitudNuevoGets;
+import pe.com.bif.techcases.testautomation.ui.questions.SolicitudNuevoValidations;
 import pe.com.bif.techcases.testautomation.ui.tasks.BandejaCotizacionesFDNActions;
-import pe.com.bif.techcases.testautomation.ui.tasks.CompiteEntidadFillElements.UploadFileCronograma;
+import pe.com.bif.techcases.testautomation.ui.tasks.GenerarFicha.GenerarFicha;
+import pe.com.bif.techcases.testautomation.ui.tasks.UploadFiles.UploadFiles;
 import pe.com.bif.techcases.testautomation.ui.tasks.LoginActions;
 import pe.com.bif.techcases.testautomation.ui.tasks.NavigateTo;
 import pe.com.bif.techcases.testautomation.ui.tasks.SolicitudNuevoActions;
@@ -20,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Map;
 
 
 @RunWith(SerenityParameterizedRunner.class)
@@ -46,6 +50,10 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
     private String seguro;
     private String compiteentidad;
     private String compromiso;
+    private String modificacionimporte;
+
+    private String desembolsofeedback;
+
 
 
 
@@ -165,7 +173,7 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
 
                     XWPFDocument docx = new XWPFDocument();
                     //create header
-                    XWPFHeaderFooterPolicy headerFooterPolicy = docx.getHeaderFooterPolicy();
+                    /*XWPFHeaderFooterPolicy headerFooterPolicy = docx.getHeaderFooterPolicy();
                     if (headerFooterPolicy == null) headerFooterPolicy = docx.createHeaderFooterPolicy();
                     XWPFHeader header = headerFooterPolicy.createHeader(XWPFHeaderFooterPolicy.DEFAULT);
                     XWPFParagraph paragraph = header.createParagraph();
@@ -177,6 +185,7 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
                     xwpfrunheader.setText("Fecha de Ejecución: "+supportTools.datetime());
                     xwpfrunheader.addBreak();
                     xwpfrunheader.setText("Test Case ID: "+idcaso);
+                    */
 
                     //create title
                     XWPFParagraph title = docx.createParagraph();
@@ -192,7 +201,12 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
                     XWPFRun xwpfrunText = text.createRun();
                     xwpfrunText.setFontSize(12);
                     xwpfrunText.setColor("000000");
+                    xwpfrunText.setText("Fecha de Ejecución: "+supportTools.datetime());
+                    xwpfrunText.addBreak();
+                    xwpfrunText.setText("Test Case ID: "+idcaso);
+                    xwpfrunText.addBreak();
                     xwpfrunText.setText("Casuística de la prueba:");
+                    xwpfrunText.addBreak();
 
                     //create table 1
                     XWPFTable table = docx.createTable();
@@ -259,6 +273,13 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
                     XWPFTableRow tableRowEighteen = table.createRow();
                     tableRowEighteen.getCell(0).setText("COMPROMISO");
                     tableRowEighteen.getCell(1).setText(compromiso);
+                    XWPFTableRow tableRowNineteen = table.createRow();
+                    tableRowNineteen.getCell(0).setText("MODIFICACION DE IMPORTE");
+                    tableRowNineteen.getCell(1).setText(modificacionimporte);
+                    XWPFTableRow tableRowTwenty = table.createRow();
+                    tableRowTwenty.getCell(0).setText("DESEMBOLSO O FEEDBACK");
+                    tableRowTwenty.getCell(1).setText(desembolsofeedback);
+
 
                     System.out.println("create_table.docx written successully");
 
@@ -266,65 +287,107 @@ public class PLDLibreDisponibilidadTarifarioTest extends BaseConf {
                     XWPFRun run = docx.createParagraph().createRun();
                     FileOutputStream out = new FileOutputStream(dirPath+"F09-"+iniciativa+" - Pruebas Automatizadas "+idcaso+".docx");
 
-                    actor.attemptsTo(
-                            LoginActions.usuario(usuario),
-                            LoginActions.password(password),
-                            LoginActions.entrar(),
-                            BandejaCotizacionesFDNActions.nuevacotizacion());
+                    actor.attemptsTo(LoginActions.usuario(usuario));
+                    actor.attemptsTo(LoginActions.password(password));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(LoginActions.entrar());
+                    actor.attemptsTo(BandejaCotizacionesFDNActions.nuevacotizacion());
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.tipodocumento("DNI"));
+                    actor.attemptsTo(SolicitudNuevoActions.nrodocumento(nrodocumento));
+                    actor.attemptsTo(SolicitudNuevoActions.buscarcliente());
+                    actor.attemptsTo(SolicitudNuevoActions.macroproducto("PLD"));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.producto("PTMO. LIBRE DISPONIBILIDAD"));
+                    actor.attemptsTo(SolicitudNuevoActions.modalidad(modalidad));
+                    actor.attemptsTo(SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"));
+                    actor.attemptsTo(SolicitudNuevoActions.relacionlaboral(tiporelacionlaboral));
+                    actor.attemptsTo(SolicitudNuevoActions.ingresonetoconsustento(ingresoneto, requieresustento));
+                    actor.attemptsTo(SolicitudNuevoActions.importe(divisa));
+                    actor.attemptsTo(SolicitudNuevoActions.montooperacion(monto));
+                    actor.attemptsTo(SolicitudNuevoActions.garantia("SIN GARANTIA"));
+                    actor.attemptsTo(SolicitudNuevoActions.plazo(plazo));
+                    actor.attemptsTo(SolicitudNuevoActions.nroplazo(nroplazo));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.opencalendar());
+                    actor.attemptsTo(SolicitudNuevoActions.nextmonthcalendar());
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.okcalendar());
+                    actor.attemptsTo(SolicitudNuevoActions.calculartasa());
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.seguro(seguro,segurodesc));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.compiteentidad(compiteentidad,entidad,divisac));
+                            supportTools.captureEvidence(run, out, dirPath);
+                            UploadFiles.uploadfilecompiteentidad(compiteentidad);
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.aceptacompiteentidad(compromiso));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.compromiso(compromiso));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.guardaroperacion());
+                    actor.attemptsTo(SolicitudNuevoActions.confirmaroperacion());
+                            supportTools.captureEvidence(run, out, dirPath);
+                            SolicitudNuevoValidations.confirmaroperacion();
+                    actor.attemptsTo(SolicitudNuevoActions.aceptarperacion());
                             supportTools.captureEvidence(run, out, dirPath);
 
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.tipodocumento("DNI"),
-                            SolicitudNuevoActions.nrodocumento(nrodocumento),
-                            SolicitudNuevoActions.buscarcliente(),
-                            //SolicitudNuevoActions.nombrecliente(escliente),
-                            SolicitudNuevoActions.macroproducto("PLD"));
-                            supportTools.captureEvidence(run, out, dirPath);
+                    Map<String, String> r =SolicitudNuevoGets.idcotizacion();
+                    XWPFTable table2 = docx.createTable();
+                    table2.removeBorders();
+                    table2.setTableAlignment(TableRowAlign.LEFT);
+                    table2.setWidth("100%");
+                    table2.setStyleID(style.getStyleId());
+                    XWPFTableRow tableRowOne2 = table2.getRow(0);
+                    tableRowOne2.getCell(0).setText("COMPONENTES");
+                    tableRowOne2.addNewTableCell().setText("RESULTADO REAL");
+                    tableRowOne2.addNewTableCell().setText("RESULTADO ESPERADO");
+                    XWPFTableRow tableRowTwo2 = table2.createRow();
+                    tableRowTwo2.getCell(0).setText("TT");
+                    tableRowTwo2.getCell(1).setText(r.get("TT"));
+                    tableRowTwo2.getCell(2).setText(r.get("TT_ESPERADO"));
+                    XWPFTableRow tableRowThree3 = table2.createRow();
+                    tableRowThree3.getCell(0).setText("LLE");
+                    tableRowThree3.getCell(1).setText(r.get("LLE"));
+                    tableRowThree3.getCell(2).setText("");
+                    XWPFTableRow tableRowFour4 = table2.createRow();
+                    tableRowFour4.getCell(0).setText("CLUSTER");
+                    tableRowFour4.getCell(1).setText(r.get("CLUSTER"));
+                    tableRowFour4.getCell(2).setText("");
+                    XWPFTableRow tableRowFive5 = table2.createRow();
+                    tableRowFive5.getCell(0).setText("TASA MINIMA");
+                    tableRowFive5.getCell(1).setText(r.get("TASA_MINIMA"));
+                    tableRowFive5.getCell(2).setText("");
+                    XWPFTableRow tableRowSix6 = table2.createRow();
+                    tableRowSix6.getCell(0).setText("TASA SUGERIDA");
+                    tableRowSix6.getCell(1).setText(r.get("TASA_SUGERIDA"));
+                    tableRowSix6.getCell(1).setText("");
 
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.producto("PTMO. LIBRE DISPONIBILIDAD"),
-                            SolicitudNuevoActions.modalidad(modalidad),
-                            SolicitudNuevoActions.nropagare(nropagare, modalidad),
-                            SolicitudNuevoActions.tipoingreso("INGRESO INDIVIDUAL"),
-                            SolicitudNuevoActions.relacionlaboral(tiporelacionlaboral),
-                            SolicitudNuevoActions.ingresonetoconsustento(ingresoneto, requieresustento),
-                            SolicitudNuevoActions.importe(divisa),
-                            SolicitudNuevoActions.montooperacion(monto),
-                            SolicitudNuevoActions.garantia("SIN GARANTIA"),
-                            SolicitudNuevoActions.plazo(plazo),
-                            SolicitudNuevoActions.nroplazo(nroplazo));
                             supportTools.captureEvidence(run, out, dirPath);
-
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.opencalendar(),
-                            SolicitudNuevoActions.nextmonthcalendar(),
-                            SolicitudNuevoActions.okcalendar(),
-                            SolicitudNuevoActions.calculartasa(),
-                            SolicitudNuevoActions.seguro(seguro,segurodesc),
-                            SolicitudNuevoActions.compiteentidad(compiteentidad,entidad,divisac));
-
-                            UploadFileCronograma.uploadfilecompiteentidad(compiteentidad);
+                    actor.attemptsTo(SolicitudNuevoActions.adjuntarsustentoingresosnetos(requieresustento));
                             supportTools.captureEvidence(run, out, dirPath);
-
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.aceptacompiteentidad(compromiso));
+                            UploadFiles.uploadfilerequieresustento(requieresustento);
                             supportTools.captureEvidence(run, out, dirPath);
-
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.compromiso(compromiso));
+                    actor.attemptsTo(SolicitudNuevoActions.aceptasustentoingresosnetos(requieresustento));
                             supportTools.captureEvidence(run, out, dirPath);
-
-                    actor.attemptsTo(
-                            SolicitudNuevoActions.guardaroperacion(),
-                            SolicitudNuevoActions.confirmaroperacion());
+                    actor.attemptsTo(SolicitudNuevoActions.modificacionimporte(modificacionimporte));
                             supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.generarfichaPLD(modificacionimporte,r.get("ID_COTIZACION")));
+                            supportTools.captureEvidence(run, out, dirPath);
+                            GenerarFicha.abrirfichapricing(r.get("ID_COTIZACION"),r.get("NAME"));
+                            supportTools.captureEvidence(run, out, dirPath);
+                            GenerarFicha.cerrarfichapricing();
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.desembolsofeedback(desembolsofeedback));
+                            supportTools.captureEvidence(run, out, dirPath);
+                    actor.attemptsTo(SolicitudNuevoActions.aceptardesembolsofeedback(desembolsofeedback));
+
 
                     System.out.println("Write to doc file sucessfully...");
                     docx.write(out);
                     out.flush();
                     out.close();
                     docx.close();
-
                 }
 
             } catch (SQLException e) {

@@ -1,5 +1,6 @@
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompromisosFillElements\SelectCompromiso.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectEntidad1.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoValidations.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\PJTarifarioTest.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\mapping\SolicitudNuevo.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\HipotecarioFillElements\FlagProyectoBanco.java
@@ -14,6 +15,8 @@ D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcas
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\FillNroPagare.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\VehicularFillElements\FillModelo.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\PLDCompraDeudaTarifarioTest.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoQuestions\ValidaIdCotizacion.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\questions\SolicitudNuevoQuestions\ValidaGuardarOperacion.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillImporteAdicionalLibre1.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectMacroProducto.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectPlazo.java
@@ -30,6 +33,7 @@ D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcas
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\HipotecarioFillElements\SelectNroVivienda.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\VehicularFillElements\FillTasaComision.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\FillMontoOfert.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\GenerarFicha\GenerarFicha.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\FillTasaOfertante.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\VEHITarifarioTest.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectDivisaProducto1.java
@@ -48,13 +52,14 @@ D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcas
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompromisosFillElements\FillMontoValor.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\LoginfillElements\FillUsuario.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillImporteComprar3.java
-D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\UploadFileCronograma.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectDivisaProducto3.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SolicitudNuevoFillElements\SelectProducto.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\VehicularFillElements\SelectConcesionario.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\FillTea2.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\DatosAdicionalesFillElements\SelectProductoComprar3.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\get\SolicitudNuevoGets.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\PJFillEments\FlagTipoDesembolso.java
+D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\UploadFiles\UploadFiles.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\bdconnections\connectionSql.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\CompiteEntidadFillElements\SelectProductoOfert.java
 D:\WorkSpaceIntellij\PricingMinoristaAutomation\src\test\java\pe\com\bif\techcases\testautomation\ui\tasks\SegurosFillElements\SelectSeguro.java

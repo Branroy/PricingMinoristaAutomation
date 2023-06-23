@@ -4,10 +4,12 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
+import net.serenitybdd.screenplay.questions.JavaScript;
 import net.serenitybdd.screenplay.ui.Select;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
+import pe.com.bif.techcases.testautomation.ui.mapping.BandejaCotizacionesFDN;
 import pe.com.bif.techcases.testautomation.ui.mapping.SolicitudNuevo;
 
 import java.awt.*;
@@ -359,13 +361,27 @@ public class SolicitudNuevoActions {
 
     public static Performable guardaroperacion() {
         return Task.where("{0} click on guardar operacion",
+                WaitUntil.the(SolicitudNuevo.GUARDAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(SolicitudNuevo.GUARDAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                 Click.on(SolicitudNuevo.GUARDAROPERACION));
     }
 
     public static Performable confirmaroperacion() {
         return Task.where("{0} click on confirmar operación",
+                WaitUntil.the(SolicitudNuevo.CHECKEXISTO, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
                 Click.on(SolicitudNuevo.CONFIRMAROPERACION),
-                WaitUntil.the(SolicitudNuevo.CHECKEXISTO, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds());
+                WaitUntil.the(SolicitudNuevo.ACEPTARGUARDAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(SolicitudNuevo.ACEPTARGUARDAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds());
+
+    }
+
+    public static Performable aceptarperacion() {
+        return Task.where("{0} click on aceptar operación",
+                Click.on(SolicitudNuevo.ACEPTARGUARDAROPERACION),
+                WaitUntil.the(SolicitudNuevo.IDCOTIZACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(SolicitudNuevo.IDCOTIZACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds());
+
+
 
     }
 
@@ -622,6 +638,7 @@ public class SolicitudNuevoActions {
             return Task.where("{0} select seguro '" + descripcion + "'",
                     WaitUntil.the(SolicitudNuevo.SEGUROS, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
                     Select.option(descripcion).from(SolicitudNuevo.SEGUROS));
+
         }else{
             return Task.where("{0} no aplica seguro");
         }
@@ -739,5 +756,163 @@ public class SolicitudNuevoActions {
             return Task.where("{0} no aplica Compromisos");
         }
     }
+    public static Performable adjuntarsustentoingresosnetos(String requieresustento) {
 
+        if ("SI".equalsIgnoreCase(requieresustento)){
+            return Task.where("{0} adjunto sustento de ingresos netos",
+                    JavaScriptClick.on(SolicitudNuevo.GENERARFICHA),
+                    JavaScriptClick.on(SolicitudNuevo.ACEPTARGENERARFICHA),
+                    JavaScriptClick.on(SolicitudNuevo.ADJUNTARSUSTENTO),
+                    JavaScriptClick.on(SolicitudNuevo.AGREGARSUSTENTO));
+        }else{
+            return Task.where("{0} no aplica adjunto sustento de ingresos netos");
+        }
+
+    }
+    public static Performable aceptasustentoingresosnetos(String requieresustento){
+        if ("SI".equalsIgnoreCase(requieresustento)){
+            return Task.where("{0} confirmar adjunto sustento ingreso netos",
+                    JavaScriptClick.on(SolicitudNuevo.CONFIRMARSUSTENTO),
+                    JavaScriptClick.on(SolicitudNuevo.ACEPTARSUSTENTO));
+        }else{
+            return Task.where("{0} no aplica adjunto sustento ingreso netos");
+        }
+    }
+
+    public static Performable modificacionimporte(String modificacionimporte) {
+
+        String importe = "100000";
+        if ("SI".equalsIgnoreCase(modificacionimporte)){
+            return Task.where("{0} Se modifica el importe a 100000 ",
+                    WaitUntil.the(SolicitudNuevo.IMPORTEFINAL, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(SolicitudNuevo.IMPORTEFINAL, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Clear.field(SolicitudNuevo.IMPORTEFINAL),
+                    Enter.theValue(Keys.ARROW_RIGHT).into(SolicitudNuevo.IMPORTEFINAL),
+                    Enter.theValue(importe).into(SolicitudNuevo.IMPORTEFINAL),
+                    WaitUntil.the(SolicitudNuevo.MODIFICARCONDICIONES, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(SolicitudNuevo.MODIFICARCONDICIONES, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.MODIFICARCONDICIONES),
+                    WaitUntil.the(SolicitudNuevo.SIMODIFICARCONDICIONES, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(SolicitudNuevo.SIMODIFICARCONDICIONES, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.SIMODIFICARCONDICIONES),
+                    WaitUntil.the(SolicitudNuevo.ACEPTARMODIFICARCONDICIONES, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(SolicitudNuevo.ACEPTARMODIFICARCONDICIONES, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(SolicitudNuevo.ACEPTARMODIFICARCONDICIONES));
+        }else {
+            return Task.where("{0} No aplica Modificación de importe");
+        }
+
+    }
+
+
+    public static Performable generarfichaPLD(String modificacionimporte,String idcotizacion) {
+        String comboestado="Aprobada";
+        System.out.println("---Si trae el ID:-----+"+idcotizacion+"+----------");
+        String idcotizacions = idcotizacion;
+        if ("NO".equalsIgnoreCase(modificacionimporte)){
+        return Task.where("{0} click on generarficha",
+                JavaScriptClick.on(BandejaCotizacionesFDN.COTIZACIONES),
+                WaitUntil.the(BandejaCotizacionesFDN.COMBOESTADO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                Select.option(comboestado).from(BandejaCotizacionesFDN.COMBOESTADO),
+                /*WaitUntil.the(BandejaCotizacionesFDN.BUSCARID, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(BandejaCotizacionesFDN.BUSCARID, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),*/
+                Clear.field(BandejaCotizacionesFDN.BUSCARID),
+                Enter.theValue(idcotizacions).into(BandejaCotizacionesFDN.BUSCARID),
+                JavaScriptClick.on(BandejaCotizacionesFDN.BTNBUSCAR),
+                WaitUntil.the(BandejaCotizacionesFDN.GENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(BandejaCotizacionesFDN.GENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                JavaScriptClick.on(BandejaCotizacionesFDN.GENERARFICHA),
+                WaitUntil.the(BandejaCotizacionesFDN.SIGENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(BandejaCotizacionesFDN.SIGENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                JavaScriptClick.on(BandejaCotizacionesFDN.SIGENERARFICHA),
+                WaitUntil.the(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                JavaScriptClick.on(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA),
+                WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                JavaScriptClick.on(BandejaCotizacionesFDN.ACEPTARGENERARFICHA));
+        }else {
+
+            return Task.where("{0} click on generarficha",
+                    JavaScriptClick.on(BandejaCotizacionesFDN.COTIZACIONES),
+                    WaitUntil.the(BandejaCotizacionesFDN.COMBOESTADO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.option(comboestado).from(BandejaCotizacionesFDN.COMBOESTADO),
+                    /*WaitUntil.the(BandejaCotizacionesFDN.BUSCARID, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.BUSCARID, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),*/
+                    Clear.field(BandejaCotizacionesFDN.BUSCARID),
+                    Enter.theValue(idcotizacions).into(BandejaCotizacionesFDN.BUSCARID),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.BTNBUSCAR),
+                    WaitUntil.the(BandejaCotizacionesFDN.GENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.GENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.GENERARFICHA),
+                    WaitUntil.the(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.CONFIRMARGENERARFICHA),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGENERARFICHA, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGENERARFICHA, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.ACEPTARGENERARFICHA));
+        }
+
+    }
+
+    public static Performable desembolsofeedback(String v){
+
+        double min1 = Math.ceil(000000001);
+        double max1 = Math.floor(999999999);
+        double r1 = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+        String contrato = "123"+String.valueOf(r1);
+        System.out.println("+++++++++++++++++++++"+contrato);
+
+        String motivo = "El cliente no está interesado en la oferta";
+        String sustento = "Test automatizado";
+
+        if ("D".equalsIgnoreCase(v)){
+            return Task.where("{0} Se desembolsa la cotización",
+                    WaitUntil.the(BandejaCotizacionesFDN.VINCULAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.VINCULAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.VINCULAROPERACION),
+                    WaitUntil.the(BandejaCotizacionesFDN.NROCONTRATO, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.NROCONTRATO, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Enter.theValue(contrato).into(BandejaCotizacionesFDN.NROCONTRATO),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARVINCULAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARVINCULAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.ACEPTARVINCULAROPERACION),
+                    WaitUntil.the(BandejaCotizacionesFDN.SIVINCULAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.SIVINCULAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.SIVINCULAROPERACION));
+        }else{
+            return Task.where("{0} Se da por perdida la cotización",
+                    WaitUntil.the(BandejaCotizacionesFDN.FEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.FEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.FEEDBACK),
+                    WaitUntil.the(BandejaCotizacionesFDN.COMBOMOTIVOFEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.COMBOMOTIVOFEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Select.value(motivo).from(BandejaCotizacionesFDN.COMBOMOTIVOFEEDBACK),
+                    WaitUntil.the(BandejaCotizacionesFDN.SUSTENTOFEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.SUSTENTOFEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    Enter.theValue(sustento).into(BandejaCotizacionesFDN.SUSTENTOFEEDBACK),
+                    WaitUntil.the(BandejaCotizacionesFDN.GUARDARFEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.GUARDARFEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.GUARDARFEEDBACK),
+                    WaitUntil.the(BandejaCotizacionesFDN.SIGUARDARFEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.SIGUARDARFEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.SIGUARDARFEEDBACK));
+        }
+    }
+
+
+    public static Performable aceptardesembolsofeedback(String v){
+
+        if ("D".equalsIgnoreCase(v)){
+            return Task.where("{0} Se acepta desembolsar la cotización",
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTAREXITOVINCULAROPERACION, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTAREXITOVINCULAROPERACION, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.ACEPTAREXITOVINCULAROPERACION));
+        }else{
+            return Task.where("{0} Se acepta dar por perdida la cotización",
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGUARDARFEEDBACK, WebElementStateMatchers.isVisible()).forNoMoreThan(20L).seconds(),
+                    WaitUntil.the(BandejaCotizacionesFDN.ACEPTARGUARDARFEEDBACK, WebElementStateMatchers.isEnabled()).forNoMoreThan(20L).seconds(),
+                    JavaScriptClick.on(BandejaCotizacionesFDN.ACEPTARGUARDARFEEDBACK));
+        }
+    }
 }
